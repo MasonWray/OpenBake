@@ -1,15 +1,21 @@
 /*
  Name:		openbake_fw.ino
  Created:	9/13/2022 7:27:36 PM
- Author:	mason
+ Author:	Mason Wray
 */
 
-// the setup function runs once when you press reset or power the board
-void setup() {
+#include <Adafruit_DotStar.h>
 
+Adafruit_DotStar* ds;
+
+void setup() {
+	ds = new Adafruit_DotStar(1, 41, 40, DOTSTAR_BGR);
+	ds->begin();
+	ds->setBrightness(1);
+	ds->setPixelColor(0, ds->gamma32(ds->Color(255, 255, 255)));
+	ds->show();
 }
 
-// the loop function runs over and over again until power down or reset
 void loop() {
-  
+
 }

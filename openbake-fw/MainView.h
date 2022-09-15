@@ -12,6 +12,7 @@
 #include "View.h"
 #include <Adafruit_ILI9341.h>
 #include "Theme.h"
+#include <Fonts/FreeMono9pt7b.h>
 
 namespace Display
 {
@@ -24,6 +25,7 @@ namespace Display
 		void initialize();
 
 	private:
+		bool running;
 		int display_width;
 		int display_height;
 		Adafruit_ILI9341* tft;

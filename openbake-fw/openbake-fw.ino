@@ -74,11 +74,11 @@ void setup() {
 }
 
 void loop() {
-	TSPoint* p = lerp(ts->getPoint());
+	/*TSPoint* p = lerp(ts->getPoint());
 	if (p->z > ts->pressureThreshhold) {
 		tft->drawPixel(p->x, p->y, ILI9341_WHITE);
 	}
-	delete p;
+	delete p;*/
 
 	float temp = tc.readFahrenheit();
 	if (lastTemp != temp) {

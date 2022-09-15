@@ -4,11 +4,14 @@
  Author:	Mason Wray
 */
 
+#include "MainView.h"
+#include "View.h"
 #include <Adafruit_DotStar.h>
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ILI9341.h>
 #include <TouchScreen.h>
+#include <Adafruit_MAX31855.h>
 
 #define TFT_DC 9
 #define TFT_CS 10
@@ -17,6 +20,10 @@
 #define XM A3
 #define YM 12
 #define XP 11
+
+#define MAXDO   2
+#define MAXCS   7
+#define MAXCLK  13
 
 #define MAX_X 820
 #define MAX_Y 911
@@ -29,11 +36,17 @@
 Adafruit_DotStar* ds;
 Adafruit_ILI9341* tft;
 TouchScreen* ts;
+Adafruit_MAX31855 tc(MAXCLK, MAXCS, MAXDO);
 
 int minX = 500, minY = 500, maxX = 0, maxY = 0;
 
+float lastTemp = 0;
+
+Display::View* view;
+
 void setup() {
 	Serial.begin(9600);
+	while (!Serial) delay(1);
 
 	// Initialize RGB LED
 	ds = new Adafruit_DotStar(1, 41, 40, DOTSTAR_BGR);
@@ -51,16 +64,28 @@ void setup() {
 	ts = new TouchScreen(XP, YP, XM, YM, 300);
 
 	// Initialize thermocouple driver
+	if (!tc.begin()) {
+		Serial.println("Thermocouple failed to initialize.");
+	}
+	Serial.println("Ready.");
 
+	// Initialize view controller
+	view = new Display::MainView(W, H, tft);
 }
 
 void loop() {
 	TSPoint* p = lerp(ts->getPoint());
-
 	if (p->z > ts->pressureThreshhold) {
 		tft->drawPixel(p->x, p->y, ILI9341_WHITE);
 	}
 	delete p;
+
+	float temp = tc.readFahrenheit();
+	if (lastTemp != temp) {
+		lastTemp = temp;
+	}
+
+	view->update();
 }
 
 TSPoint* lerp(TSPoint p) {

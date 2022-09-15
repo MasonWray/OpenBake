@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>xml;json;txt;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Display Interfaces">
+      <UniqueIdentifier>{54ad98db-9644-4710-8423-9111dbfa33c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views">
+      <UniqueIdentifier>{4ee9b19a-bdae-43fc-aa0f-b83e83172d2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{f62aaeca-5ee7-4cb9-aa0a-a6bbc8bb8a2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Display Interface">
+      <UniqueIdentifier>{0ab13f36-d21b-4399-be41-e93d8ee3979b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views">
+      <UniqueIdentifier>{9c714d7a-71bf-4364-aece-08074d226480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{8f80801c-9dce-41b8-a8c0-cb71cedbe167}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openbake-fw.ino" />
@@ -24,5 +42,25 @@
     <ClInclude Include="__vm\.openbake-fw.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="MainView.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewType.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Theme.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="View.cpp">
+      <Filter>Source Files\Display Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="MainView.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

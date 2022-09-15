@@ -1,7 +1,7 @@
-// View.h
+// ViewType.h
 
-#ifndef _VIEW_h
-#define _VIEW_h
+#ifndef _VIEWTYPE_h
+#define _VIEWTYPE_h
 
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "arduino.h"
@@ -14,13 +14,6 @@ namespace Display
 	enum ViewType
 	{
 		MAIN_VIEW,
-	};
-
-	class View
-	{
-	public:
-		virtual void update();
-		virtual void initialize();
 	};
 }
 

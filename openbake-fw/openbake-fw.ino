@@ -70,7 +70,7 @@ void setup() {
 	Serial.println("Ready.");
 
 	// Initialize view controller
-	view = new Display::MainView();
+	view = new Display::MainView(W, H, tft);
 }
 
 void loop() {
@@ -82,9 +82,10 @@ void loop() {
 
 	float temp = tc.readFahrenheit();
 	if (lastTemp != temp) {
-		Serial.println(temp);
 		lastTemp = temp;
 	}
+
+	view->update();
 }
 
 TSPoint* lerp(TSPoint p) {

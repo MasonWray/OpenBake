@@ -17,6 +17,8 @@ Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, Touch
 	tc = _tc;
 	start_pressed = false;
 	config_pressed = false;
+	start_gap = 0;
+	config_gap = 0;
 
 	initialize();
 }
@@ -27,6 +29,12 @@ Display::MainView::~MainView()
 
 void Display::MainView::update()
 {
+	// Draw Start/Stop Button
+	renderStartButton(false);
+
+	// Draw Settings Button
+	renderConfigButton(false);
+
 	// Update temperature
 	if (millis() - timer > TEMP_UPDATE)
 	{
@@ -84,15 +92,89 @@ void Display::MainView::initialize()
 	config_box.h = button_height;
 
 	// Draw Start/Stop Button
-	tft->drawRoundRect(start_box.x, start_box.y, start_box.w, start_box.h, radius, border_color);
-	tft->setCursor(start_box.x + 24, start_box.y + 24);
-	tft->print("START");
+	renderStartButton(true);
 
 	// Draw Settings Button
-	tft->drawRoundRect(config_box.x, config_box.y, config_box.w, config_box.h, radius, border_color);
-	tft->setCursor(config_box.x + 20, config_box.y + 24);
-	tft->print("CONFIG");
+	renderConfigButton(true);
+}
 
+void Display::MainView::renderStartButton(bool force)
+{
+	bool rerender = force;
+	TSPoint* p = Utils::lerp(ts->getPoint());
+
+	if (p->z > ts->pressureThreshhold)
+	{
+		if (p->x >= start_box.x && p->x <= start_box.x + start_box.w && p->y >= start_box.y && p->y <= start_box.y + start_box.h)
+		{
+			rerender = start_pressed ? rerender : true;
+			start_pressed = true;
+			start_gap = 0;
+		}
+	}
+	else
+	{
+		if (start_pressed)
+		{
+			start_gap++;
+		}
+
+		if (start_gap > 8 && start_pressed) {
+			rerender = true;
+			start_pressed = false;
+		}
+	}
+
+	delete p;
+	if (rerender)
+	{
+		if (start_pressed) { tft->fillRoundRect(start_box.x, start_box.y, start_box.w, start_box.h, radius, bg_selected); }
+		else { tft->fillRoundRect(start_box.x, start_box.y, start_box.w, start_box.h, radius, bg_accent); }
+
+		tft->drawRoundRect(start_box.x, start_box.y, start_box.w, start_box.h, radius, border_color);
+		tft->setCursor(start_box.x + 24, start_box.y + 24);
+		tft->print("START");
+	}
+}
+
+void Display::MainView::renderConfigButton(bool force)
+{
+	bool rerender = force;
+	TSPoint* p = Utils::lerp(ts->getPoint());
+
+	if (p->z > ts->pressureThreshhold)
+	{
+		if (p->x >= config_box.x && p->x <= config_box.x + config_box.w && p->y >= config_box.y && p->y <= config_box.y + config_box.h)
+		{
+			rerender = config_pressed ? rerender : true;
+			config_pressed = true;
+			config_gap = 0;
+		}
+	}
+	else
+	{
+		if (config_pressed)
+		{
+			config_gap++;
+		}
+
+		if (config_gap > 8 && config_pressed) {
+			rerender = true;
+			config_pressed = false;
+		}
+	}
+
+	delete p;
+
+	if (rerender)
+	{
+		if (config_pressed) { tft->fillRoundRect(config_box.x, config_box.y, config_box.w, config_box.h, radius, bg_selected); }
+		else { tft->fillRoundRect(config_box.x, config_box.y, config_box.w, config_box.h, radius, bg_accent); }
+
+		tft->drawRoundRect(config_box.x, config_box.y, config_box.w, config_box.h, radius, border_color);
+		tft->setCursor(config_box.x + 20, config_box.y + 24);
+		tft->print("CONFIG");
+	}
 }
 
 

@@ -9,6 +9,9 @@
 #include "WProgram.h"
 #endif
 
+#include "Config.h"
+#include <TouchScreen.h>
+
 namespace Utils
 {
 	struct BoundingBox
@@ -20,6 +23,7 @@ namespace Utils
 	};
 
 	char* formatf(double val, signed char width, unsigned char prec, char* sout);
+	TSPoint* lerp(TSPoint p);
 }
 
 #endif

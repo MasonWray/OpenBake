@@ -29,8 +29,8 @@ namespace Display
 		~MainView();
 		void update();
 		void initialize();
-		void renderStartButton();
-		void renderConfigButton();
+		void renderStartButton(bool force);
+		void renderConfigButton(bool force);
 
 	private:
 		int timer;
@@ -46,6 +46,8 @@ namespace Display
 		Utils::BoundingBox temp_box;
 		bool start_pressed;
 		bool config_pressed;
+		int start_gap;
+		int config_gap;
 	};
 }
 

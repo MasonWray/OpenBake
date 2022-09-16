@@ -7,6 +7,7 @@
 #include "Utils.h"
 #include "MainView.h"
 #include "View.h"
+#include "Config.h"
 #include <Adafruit_DotStar.h>
 #include <SPI.h>
 #include <Adafruit_GFX.h>
@@ -26,22 +27,12 @@
 #define MAXCS   7
 #define MAXCLK  13
 
-#define MAX_X 820
-#define MAX_Y 911
-#define MIN_X 230
-#define MIN_Y 147
-
-#define W 240
-#define H 320
-
 Adafruit_DotStar ds = Adafruit_DotStar(1, 41, 40, DOTSTAR_BGR);
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 Adafruit_MAX31855 tc = Adafruit_MAX31855(MAXCLK, MAXCS, MAXDO);
 
 int minX = 500, minY = 500, maxX = 0, maxY = 0;
-
-//float lastTemp = 0;
 
 Display::View* view;
 
@@ -70,18 +61,11 @@ void setup() {
 }
 
 void loop() {
-	/*TSPoint* p = lerp(ts.getPoint());
+	/*TSPoint* p = Utils::lerp(ts.getPoint());
 	if (p->z > ts.pressureThreshhold) {
-		tft->drawPixel(p->x, p->y, ILI9341_WHITE);
+		tft.drawPixel(p->x, p->y, ILI9341_WHITE);
 	}
 	delete p;*/
 
 	view->update();
-}
-
-TSPoint* lerp(TSPoint p) {
-	int x = ((p.x - MIN_X) / (float)(MAX_X - MIN_X)) * W;
-	int y = ((p.y - MIN_Y) / (float)(MAX_Y - MIN_Y)) * H;
-	TSPoint* r = new TSPoint(x, y, p.z);
-	return r;
 }

@@ -33,7 +33,7 @@
 #define W 240
 #define H 320
 
-Adafruit_DotStar* ds;
+Adafruit_DotStar ds(1, 41, 40, DOTSTAR_BGR);
 Adafruit_ILI9341* tft;
 TouchScreen* ts;
 Adafruit_MAX31855 tc(MAXCLK, MAXCS, MAXDO);
@@ -49,11 +49,10 @@ void setup() {
 	while (!Serial) delay(1);
 
 	// Initialize RGB LED
-	ds = new Adafruit_DotStar(1, 41, 40, DOTSTAR_BGR);
-	ds->begin();
-	ds->setBrightness(1);
-	ds->setPixelColor(0, ds->gamma32(ds->Color(255, 255, 255)));
-	ds->show();
+	ds.begin();
+	ds.setBrightness(1);
+	ds.setPixelColor(0, ds.gamma32(ds.Color(255, 255, 255)));
+	ds.show();
 
 	// Initialize TFT display
 	tft = new Adafruit_ILI9341(TFT_CS, TFT_DC);

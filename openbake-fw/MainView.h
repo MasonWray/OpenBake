@@ -10,11 +10,15 @@
 #endif
 
 #include "View.h"
-#include <Adafruit_ILI9341.h>
 #include "Theme.h"
+#include "Utils.h"
+#include <Arduino.h>
+#include <Adafruit_ILI9341.h>
 #include <TouchScreen.h>
 #include <Adafruit_MAX31855.h>
 #include <Fonts/FreeMono9pt7b.h>
+
+#define TEMP_UPDATE 1000
 
 namespace Display
 {
@@ -25,16 +29,21 @@ namespace Display
 		~MainView();
 		void update();
 		void initialize();
-		void renderStartButton(int x, int y, int w, int h);
-		void renderConfigButton(int x, int y, int w, int h);
+		void renderStartButton();
+		void renderConfigButton();
 
 	private:
-		bool running;
+		int timer;
 		int display_width;
 		int display_height;
 		Adafruit_ILI9341* tft;
 		TouchScreen* ts;
 		Adafruit_MAX31855* tc;
+		Utils::BoundingBox start_box;
+		Utils::BoundingBox config_box;
+		Utils::BoundingBox profile_box;
+		Utils::BoundingBox time_box;
+		Utils::BoundingBox temp_box;
 	};
 }
 

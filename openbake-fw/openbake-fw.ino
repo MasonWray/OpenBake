@@ -4,6 +4,7 @@
  Author:	Mason Wray
 */
 
+#include "Utils.h"
 #include "MainView.h"
 #include "View.h"
 #include <Adafruit_DotStar.h>
@@ -74,11 +75,6 @@ void loop() {
 		tft->drawPixel(p->x, p->y, ILI9341_WHITE);
 	}
 	delete p;*/
-
-	/*float temp = tc.readFahrenheit();
-	if (lastTemp != temp) {
-		lastTemp = temp;
-	}*/
 
 	view->update();
 }

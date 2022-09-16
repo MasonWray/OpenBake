@@ -54,6 +54,9 @@
     <ClInclude Include="Theme.h">
       <Filter>Header Files\Display Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -61,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="MainView.cpp">
       <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\Display Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

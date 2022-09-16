@@ -33,14 +33,14 @@
 #define W 240
 #define H 320
 
-Adafruit_DotStar ds(1, 41, 40, DOTSTAR_BGR);
-Adafruit_ILI9341 tft(TFT_CS, TFT_DC);
-TouchScreen ts(XP, YP, XM, YM, 300);
-Adafruit_MAX31855 tc(MAXCLK, MAXCS, MAXDO);
+Adafruit_DotStar ds = Adafruit_DotStar(1, 41, 40, DOTSTAR_BGR);
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
+Adafruit_MAX31855 tc = Adafruit_MAX31855(MAXCLK, MAXCS, MAXDO);
 
 int minX = 500, minY = 500, maxX = 0, maxY = 0;
 
-float lastTemp = 0;
+//float lastTemp = 0;
 
 Display::View* view;
 
@@ -57,8 +57,6 @@ void setup() {
 	// Initialize TFT display
 	tft.begin();
 	tft.fillScreen(ILI9341_BLACK);
-
-	// Initialize touch film driver
 
 	// Initialize thermocouple driver
 	if (!tc.begin()) {
@@ -77,10 +75,10 @@ void loop() {
 	}
 	delete p;*/
 
-	float temp = tc.readFahrenheit();
+	/*float temp = tc.readFahrenheit();
 	if (lastTemp != temp) {
 		lastTemp = temp;
-	}
+	}*/
 
 	view->update();
 }

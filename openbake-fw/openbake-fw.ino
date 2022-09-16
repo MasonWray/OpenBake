@@ -34,7 +34,7 @@
 #define H 320
 
 Adafruit_DotStar ds(1, 41, 40, DOTSTAR_BGR);
-Adafruit_ILI9341* tft;
+Adafruit_ILI9341 tft(TFT_CS, TFT_DC);
 TouchScreen ts(XP, YP, XM, YM, 300);
 Adafruit_MAX31855 tc(MAXCLK, MAXCS, MAXDO);
 
@@ -55,12 +55,10 @@ void setup() {
 	ds.show();
 
 	// Initialize TFT display
-	tft = new Adafruit_ILI9341(TFT_CS, TFT_DC);
-	tft->begin();
-	tft->fillScreen(ILI9341_BLACK);
+	tft.begin();
+	tft.fillScreen(ILI9341_BLACK);
 
 	// Initialize touch film driver
-	//ts = new TouchScreen(XP, YP, XM, YM, 300);
 
 	// Initialize thermocouple driver
 	if (!tc.begin()) {
@@ -69,7 +67,7 @@ void setup() {
 	Serial.println("Ready.");
 
 	// Initialize view controller
-	view = new Display::MainView(W, H, tft);
+	view = new Display::MainView(W, H, &tft);
 }
 
 void loop() {

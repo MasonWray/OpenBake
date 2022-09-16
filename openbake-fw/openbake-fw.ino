@@ -65,7 +65,7 @@ void setup() {
 	Serial.println("Ready.");
 
 	// Initialize view controller
-	view = new Display::MainView(W, H, &tft);
+	view = new Display::MainView(W, H, &tft, &ts, &tc);
 }
 
 void loop() {

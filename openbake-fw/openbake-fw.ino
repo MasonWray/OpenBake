@@ -35,7 +35,7 @@
 
 Adafruit_DotStar ds(1, 41, 40, DOTSTAR_BGR);
 Adafruit_ILI9341* tft;
-TouchScreen* ts;
+TouchScreen ts(XP, YP, XM, YM, 300);
 Adafruit_MAX31855 tc(MAXCLK, MAXCS, MAXDO);
 
 int minX = 500, minY = 500, maxX = 0, maxY = 0;
@@ -60,7 +60,7 @@ void setup() {
 	tft->fillScreen(ILI9341_BLACK);
 
 	// Initialize touch film driver
-	ts = new TouchScreen(XP, YP, XM, YM, 300);
+	//ts = new TouchScreen(XP, YP, XM, YM, 300);
 
 	// Initialize thermocouple driver
 	if (!tc.begin()) {
@@ -73,8 +73,8 @@ void setup() {
 }
 
 void loop() {
-	/*TSPoint* p = lerp(ts->getPoint());
-	if (p->z > ts->pressureThreshhold) {
+	/*TSPoint* p = lerp(ts.getPoint());
+	if (p->z > ts.pressureThreshhold) {
 		tft->drawPixel(p->x, p->y, ILI9341_WHITE);
 	}
 	delete p;*/

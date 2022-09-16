@@ -44,6 +44,8 @@ namespace Display
 		Utils::BoundingBox profile_box;
 		Utils::BoundingBox time_box;
 		Utils::BoundingBox temp_box;
+		bool start_pressed;
+		bool config_pressed;
 	};
 }
 

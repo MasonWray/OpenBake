@@ -15,6 +15,8 @@ Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, Touch
 	tft = _tft;
 	ts = _ts;
 	tc = _tc;
+	start_pressed = false;
+	config_pressed = false;
 
 	initialize();
 }
@@ -71,14 +73,24 @@ void Display::MainView::initialize()
 	int b1_x = padding;
 	int b2_x = button_width + (padding * 2);
 
+	start_box.x = padding;
+	start_box.y = button_y;
+	start_box.w = button_width;
+	start_box.h = button_height;
+
+	config_box.x = button_width + (padding * 2);
+	config_box.y = button_y;
+	config_box.w = button_width;
+	config_box.h = button_height;
+
 	// Draw Start/Stop Button
-	tft->drawRoundRect(b1_x, button_y, button_width, button_height, radius, border_color);
-	tft->setCursor(b1_x + 24, button_y + 24);
+	tft->drawRoundRect(start_box.x, start_box.y, start_box.w, start_box.h, radius, border_color);
+	tft->setCursor(start_box.x + 24, start_box.y + 24);
 	tft->print("START");
 
 	// Draw Settings Button
-	tft->drawRoundRect(b2_x, button_y, button_width, button_height, radius, border_color);
-	tft->setCursor(b2_x + 20, button_y + 24);
+	tft->drawRoundRect(config_box.x, config_box.y, config_box.w, config_box.h, radius, border_color);
+	tft->setCursor(config_box.x + 20, config_box.y + 24);
 	tft->print("CONFIG");
 
 }

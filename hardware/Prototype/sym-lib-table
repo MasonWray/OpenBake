@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Modules)(type Legacy)(uri F:/Projects/OpenBake/hardware/lib/Modules.lib)(options "")(descr ""))
+)

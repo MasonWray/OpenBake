@@ -14,11 +14,6 @@
 
 namespace ViewUtils
 {
-	enum ViewType
-	{
-		MAIN_VIEW,
-	};
-
 	struct BoundingBox
 	{
 		int16_t x;

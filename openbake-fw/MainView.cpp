@@ -27,7 +27,7 @@ MainView::~MainView()
 {
 }
 
-ViewType MainView::update()
+View::ViewType MainView::update()
 {
 	// Draw Start/Stop Button
 	renderStartButton(false);

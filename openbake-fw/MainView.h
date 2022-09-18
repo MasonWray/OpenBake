@@ -25,7 +25,7 @@ class MainView : public View
 public:
 	MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc);
 	~MainView();
-	ViewUtils::ViewType update();
+	View::ViewType update();
 	void initialize();
 	void renderStartButton(bool force);
 	void renderConfigButton(bool force);

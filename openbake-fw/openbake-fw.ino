@@ -4,7 +4,8 @@
  Author:	Mason Wray
 */
 
-#include "Utils.h"
+#include "ConfigView.h"
+#include "ViewUtils.h"
 #include "MainView.h"
 #include "View.h"
 #include "Config.h"
@@ -34,7 +35,7 @@ Adafruit_MAX31855 tc = Adafruit_MAX31855(MAXCLK, MAXCS, MAXDO);
 
 int minX = 500, minY = 500, maxX = 0, maxY = 0;
 
-Display::View* view;
+View* view;
 
 void setup() {
 	Serial.begin(9600);
@@ -57,15 +58,31 @@ void setup() {
 	Serial.println("Ready.");
 
 	// Initialize view controller
-	view = new Display::MainView(W, H, &tft, &ts, &tc);
+	view = new MainView(W, H, &tft, &ts, &tc);
 }
 
 void loop() {
-	/*TSPoint* p = Utils::lerp(ts.getPoint());
-	if (p->z > ts.pressureThreshhold) {
-		tft.drawPixel(p->x, p->y, ILI9341_WHITE);
-	}
-	delete p;*/
-
 	view->update();
+
+	if (view->next_view != view->type)
+	{
+		switch (view->next_view)
+		{
+		case View::MAIN_VIEW:
+			delete view;
+			view = new MainView(W, H, &tft, &ts, &tc);
+			break;
+		case View::CONFIG_VIEW:
+			delete view;
+			view = new ConfigView(W, H, &tft, &ts, &tc);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void updateCurrentView(View::ViewType new_view, View* cur_view)
+{
+
 }

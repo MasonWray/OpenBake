@@ -48,17 +48,17 @@
     <ClInclude Include="MainView.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
-    <ClInclude Include="ViewType.h">
-      <Filter>Header Files\Display Interface</Filter>
-    </ClInclude>
     <ClInclude Include="Theme.h">
       <Filter>Header Files\Display Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
+    <ClInclude Include="ViewUtils.h">
       <Filter>Header Files\Display Interface</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigView.h">
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +68,11 @@
     <ClCompile Include="MainView.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
+    <ClCompile Include="ViewUtils.cpp">
       <Filter>Source Files\Display Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigView.cpp">
+      <Filter>Source Files\Views</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

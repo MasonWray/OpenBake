@@ -5,16 +5,19 @@
 #include "MainView.h"
 
 using namespace Theme;
-using namespace Utils;
+using namespace ViewUtils;
 
-Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc)
+MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc)
 {
-	timer = millis();
+	type = ViewType::MAIN_VIEW;
+	next_view = ViewType::MAIN_VIEW;
 	display_width = width;
 	display_height = height;
 	tft = _tft;
 	ts = _ts;
 	tc = _tc;
+
+	timer = millis();
 	start_pressed = false;
 	config_pressed = false;
 	start_gap = 0;
@@ -23,35 +26,11 @@ Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, Touch
 	initialize();
 }
 
-Display::MainView::~MainView()
+MainView::~MainView()
 {
 }
 
-void Display::MainView::update()
-{
-	// Draw Start/Stop Button
-	renderStartButton(false);
-
-	// Draw Settings Button
-	renderConfigButton(false);
-
-	// Update temperature
-	if (millis() - timer > TEMP_UPDATE)
-	{
-		timer = millis();
-		float temp = tc->readFahrenheit();
-		tft->setFont(&FreeMono9pt7b);
-		tft->fillRect(temp_box.x - 1, temp_box.y - 1, temp_box.w + 2, temp_box.h + 2, background_color);
-		tft->setCursor(temp_box.x, temp_box.y + temp_box.h - 1);
-		char t_buffer[16];
-		char s_buffer[16];
-		Utils::formatf(temp, 6, 2, t_buffer);
-		sprintf(s_buffer, "%s %c", t_buffer, 'F');
-		tft->print(s_buffer);
-	}
-}
-
-void Display::MainView::initialize()
+void MainView::initialize()
 {
 	// Draw Temp Chart
 	tft->fillRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, bg_accent);
@@ -94,14 +73,42 @@ void Display::MainView::initialize()
 	// Draw Start/Stop Button
 	renderStartButton(true);
 
-	// Draw Settings Button
+	// Draw Config Button
 	renderConfigButton(true);
 }
 
-void Display::MainView::renderStartButton(bool force)
+void MainView::update()
 {
+	// Draw Start/Stop Button
+	renderStartButton(false);
+
+	// Draw Config Button
+	if (renderConfigButton(false))
+	{
+		next_view = ViewType::CONFIG_VIEW;
+	}
+
+	// Update temperature
+	if (millis() - timer > TEMP_UPDATE)
+	{
+		timer = millis();
+		float temp = tc->readFahrenheit();
+		tft->setFont(&FreeMono9pt7b);
+		tft->fillRect(temp_box.x - 1, temp_box.y - 1, temp_box.w + 2, temp_box.h + 2, background_color);
+		tft->setCursor(temp_box.x, temp_box.y + temp_box.h - 1);
+		char t_buffer[16];
+		char s_buffer[16];
+		ViewUtils::formatf(temp, 6, 2, t_buffer);
+		sprintf(s_buffer, "%s %c", t_buffer, 'F');
+		tft->print(s_buffer);
+	}
+}
+
+bool MainView::renderStartButton(bool force)
+{
+	bool transition = false;
 	bool rerender = force;
-	TSPoint* p = Utils::lerp(ts->getPoint());
+	TSPoint* p = ViewUtils::lerp(ts->getPoint());
 
 	if (p->z > ts->pressureThreshhold)
 	{
@@ -122,10 +129,12 @@ void Display::MainView::renderStartButton(bool force)
 		if (start_gap > 8 && start_pressed) {
 			rerender = true;
 			start_pressed = false;
+			transition = true;
 		}
 	}
 
 	delete p;
+
 	if (rerender)
 	{
 		if (start_pressed) { tft->fillRoundRect(start_box.x, start_box.y, start_box.w, start_box.h, radius, bg_selected); }
@@ -135,12 +144,14 @@ void Display::MainView::renderStartButton(bool force)
 		tft->setCursor(start_box.x + 24, start_box.y + 24);
 		tft->print("START");
 	}
+	return transition;
 }
 
-void Display::MainView::renderConfigButton(bool force)
+bool MainView::renderConfigButton(bool force)
 {
+	bool transition = false;
 	bool rerender = force;
-	TSPoint* p = Utils::lerp(ts->getPoint());
+	TSPoint* p = ViewUtils::lerp(ts->getPoint());
 
 	if (p->z > ts->pressureThreshhold)
 	{
@@ -161,6 +172,7 @@ void Display::MainView::renderConfigButton(bool force)
 		if (config_gap > 8 && config_pressed) {
 			rerender = true;
 			config_pressed = false;
+			transition = true;
 		}
 	}
 
@@ -175,6 +187,8 @@ void Display::MainView::renderConfigButton(bool force)
 		tft->setCursor(config_box.x + 20, config_box.y + 24);
 		tft->print("CONFIG");
 	}
+
+	return transition;
 }
 
 

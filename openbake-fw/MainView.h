@@ -12,10 +12,6 @@
 #include "View.h"
 #include "Theme.h"
 #include "ViewUtils.h"
-#include <Arduino.h>
-#include <Adafruit_ILI9341.h>
-#include <TouchScreen.h>
-#include <Adafruit_MAX31855.h>
 #include <Fonts/FreeMono9pt7b.h>
 
 #define TEMP_UPDATE 1000
@@ -25,18 +21,13 @@ class MainView : public View
 public:
 	MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc);
 	~MainView();
-	View::ViewType update();
+	void update();
 	void initialize();
-	void renderStartButton(bool force);
-	void renderConfigButton(bool force);
+	bool renderStartButton(bool force);
+	bool renderConfigButton(bool force);
 
 private:
 	int timer;
-	int display_width;
-	int display_height;
-	Adafruit_ILI9341* tft;
-	TouchScreen* ts;
-	Adafruit_MAX31855* tc;
 	ViewUtils::BoundingBox start_box;
 	ViewUtils::BoundingBox config_box;
 	ViewUtils::BoundingBox profile_box;

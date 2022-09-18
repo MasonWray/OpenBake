@@ -63,4 +63,26 @@ void setup() {
 
 void loop() {
 	view->update();
+
+	if (view->next_view != view->type)
+	{
+		switch (view->next_view)
+		{
+		case View::MAIN_VIEW:
+			delete view;
+			view = new MainView(W, H, &tft, &ts, &tc);
+			break;
+		case View::CONFIG_VIEW:
+			delete view;
+			view = new ConfigView(W, H, &tft, &ts, &tc);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void updateCurrentView(View::ViewType new_view, View* cur_view)
+{
+
 }

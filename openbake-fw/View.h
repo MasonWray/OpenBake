@@ -10,6 +10,10 @@
 #endif
 
 #include "ViewUtils.h"
+#include <Arduino.h>
+#include <Adafruit_ILI9341.h>
+#include <TouchScreen.h>
+#include <Adafruit_MAX31855.h>
 
 class View
 {
@@ -17,9 +21,19 @@ public:
 	enum ViewType
 	{
 		MAIN_VIEW,
+		CONFIG_VIEW,
 	};
 
-	virtual ViewType update();
+	ViewType type;
+	int display_width;
+	int display_height;
+
+	Adafruit_ILI9341* tft;
+	TouchScreen* ts;
+	Adafruit_MAX31855* tc;
+
+	ViewType next_view;
+	virtual void update();
 	virtual void initialize();
 	static void updateCurrentView(ViewType new_view, View* cur_view);
 };

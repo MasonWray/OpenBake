@@ -4,6 +4,7 @@
  Author:	Mason Wray
 */
 
+#include "ConfigView.h"
 #include "Utils.h"
 #include "MainView.h"
 #include "View.h"
@@ -61,11 +62,5 @@ void setup() {
 }
 
 void loop() {
-	/*TSPoint* p = Utils::lerp(ts.getPoint());
-	if (p->z > ts.pressureThreshhold) {
-		tft.drawPixel(p->x, p->y, ILI9341_WHITE);
-	}
-	delete p;*/
-
 	view->update();
 }

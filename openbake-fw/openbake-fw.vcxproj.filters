@@ -60,6 +60,9 @@
     <ClInclude Include="Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ConfigView.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -70,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\Display Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigView.cpp">
+      <Filter>Source Files\Views</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

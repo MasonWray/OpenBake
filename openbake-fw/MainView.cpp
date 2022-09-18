@@ -27,7 +27,7 @@ Display::MainView::~MainView()
 {
 }
 
-void Display::MainView::update()
+Display::ViewType Display::MainView::update()
 {
 	// Draw Start/Stop Button
 	renderStartButton(false);
@@ -49,6 +49,8 @@ void Display::MainView::update()
 		sprintf(s_buffer, "%s %c", t_buffer, 'F');
 		tft->print(s_buffer);
 	}
+
+	return Display::ViewType::MAIN_VIEW;
 }
 
 void Display::MainView::initialize()

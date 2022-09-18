@@ -19,7 +19,7 @@ namespace Display
 	class View
 	{
 	public:
-		virtual void update();
+		virtual ViewType update();
 		virtual void initialize();
 	};
 }

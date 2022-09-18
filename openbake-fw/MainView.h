@@ -11,7 +11,7 @@
 
 #include "View.h"
 #include "Theme.h"
-#include "Utils.h"
+#include "ViewUtils.h"
 #include <Arduino.h>
 #include <Adafruit_ILI9341.h>
 #include <TouchScreen.h>
@@ -39,11 +39,11 @@ namespace Display
 		Adafruit_ILI9341* tft;
 		TouchScreen* ts;
 		Adafruit_MAX31855* tc;
-		Utils::BoundingBox start_box;
-		Utils::BoundingBox config_box;
-		Utils::BoundingBox profile_box;
-		Utils::BoundingBox time_box;
-		Utils::BoundingBox temp_box;
+		ViewUtils::BoundingBox start_box;
+		ViewUtils::BoundingBox config_box;
+		ViewUtils::BoundingBox profile_box;
+		ViewUtils::BoundingBox time_box;
+		ViewUtils::BoundingBox temp_box;
 		bool start_pressed;
 		bool config_pressed;
 		int start_gap;

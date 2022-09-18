@@ -1,7 +1,7 @@
-// Utils.h
+// ViewUtils.h
 
-#ifndef _UTILS_h
-#define _UTILS_h
+#ifndef _VIEWUTILS_h
+#define _VIEWUTILS_h
 
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "arduino.h"
@@ -13,7 +13,7 @@
 #include "Config.h"
 #include <TouchScreen.h>
 
-namespace Utils
+namespace ViewUtils
 {
 	struct BoundingBox
 	{

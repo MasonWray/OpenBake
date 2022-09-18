@@ -5,7 +5,7 @@
 #include "MainView.h"
 
 using namespace Theme;
-using namespace Utils;
+using namespace ViewUtils;
 
 Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc)
 {
@@ -45,7 +45,7 @@ Display::ViewType Display::MainView::update()
 		tft->setCursor(temp_box.x, temp_box.y + temp_box.h - 1);
 		char t_buffer[16];
 		char s_buffer[16];
-		Utils::formatf(temp, 6, 2, t_buffer);
+		ViewUtils::formatf(temp, 6, 2, t_buffer);
 		sprintf(s_buffer, "%s %c", t_buffer, 'F');
 		tft->print(s_buffer);
 	}
@@ -103,7 +103,7 @@ void Display::MainView::initialize()
 void Display::MainView::renderStartButton(bool force)
 {
 	bool rerender = force;
-	TSPoint* p = Utils::lerp(ts->getPoint());
+	TSPoint* p = ViewUtils::lerp(ts->getPoint());
 
 	if (p->z > ts->pressureThreshhold)
 	{
@@ -142,7 +142,7 @@ void Display::MainView::renderStartButton(bool force)
 void Display::MainView::renderConfigButton(bool force)
 {
 	bool rerender = force;
-	TSPoint* p = Utils::lerp(ts->getPoint());
+	TSPoint* p = ViewUtils::lerp(ts->getPoint());
 
 	if (p->z > ts->pressureThreshhold)
 	{

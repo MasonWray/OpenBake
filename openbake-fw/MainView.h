@@ -20,36 +20,33 @@
 
 #define TEMP_UPDATE 1000
 
-namespace Display
+class MainView : public View
 {
-	class MainView : public View
-	{
-	public:
-		MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc);
-		~MainView();
-		Display::ViewType update();
-		void initialize();
-		void renderStartButton(bool force);
-		void renderConfigButton(bool force);
+public:
+	MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc);
+	~MainView();
+	ViewUtils::ViewType update();
+	void initialize();
+	void renderStartButton(bool force);
+	void renderConfigButton(bool force);
 
-	private:
-		int timer;
-		int display_width;
-		int display_height;
-		Adafruit_ILI9341* tft;
-		TouchScreen* ts;
-		Adafruit_MAX31855* tc;
-		ViewUtils::BoundingBox start_box;
-		ViewUtils::BoundingBox config_box;
-		ViewUtils::BoundingBox profile_box;
-		ViewUtils::BoundingBox time_box;
-		ViewUtils::BoundingBox temp_box;
-		bool start_pressed;
-		bool config_pressed;
-		int start_gap;
-		int config_gap;
-	};
-}
+private:
+	int timer;
+	int display_width;
+	int display_height;
+	Adafruit_ILI9341* tft;
+	TouchScreen* ts;
+	Adafruit_MAX31855* tc;
+	ViewUtils::BoundingBox start_box;
+	ViewUtils::BoundingBox config_box;
+	ViewUtils::BoundingBox profile_box;
+	ViewUtils::BoundingBox time_box;
+	ViewUtils::BoundingBox temp_box;
+	bool start_pressed;
+	bool config_pressed;
+	int start_gap;
+	int config_gap;
+};
 
 #endif
 

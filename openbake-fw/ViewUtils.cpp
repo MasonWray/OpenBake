@@ -21,8 +21,3 @@ TSPoint* ViewUtils::lerp(TSPoint p)
 	TSPoint* r = new TSPoint(x, y, p.z);
 	return r;
 }
-
-void ViewUtils::updateCurrentView(Display::ViewType new_view, Display::View* cur_view)
-{
-
-}

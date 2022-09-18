@@ -123,15 +123,14 @@
     <ClInclude Include="ConfigView.h" />
     <ClInclude Include="MainView.h" />
     <ClInclude Include="Theme.h" />
-    <ClInclude Include="Utils.h" />
+    <ClInclude Include="ViewUtils.h" />
     <ClInclude Include="View.h" />
-    <ClInclude Include="ViewType.h" />
     <ClInclude Include="__vm\.openbake-fw.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConfigView.cpp" />
     <ClCompile Include="MainView.cpp" />
-    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="ViewUtils.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

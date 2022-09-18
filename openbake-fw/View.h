@@ -9,20 +9,16 @@
 #include "WProgram.h"
 #endif
 
-namespace Display
-{
-	enum ViewType
-	{
-		MAIN_VIEW,
-	};
+#include "ViewUtils.h"
 
-	class View
-	{
-	public:
-		virtual ViewType update();
-		virtual void initialize();
-	};
-}
+class View
+{
+public:
+	virtual ViewUtils::ViewType update();
+	virtual void initialize();
+	static void updateCurrentView(ViewUtils::ViewType new_view, View* cur_view);
+};
+
 
 #endif
 

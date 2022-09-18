@@ -7,7 +7,7 @@
 using namespace Theme;
 using namespace ViewUtils;
 
-Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc)
+MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc)
 {
 	timer = millis();
 	display_width = width;
@@ -23,11 +23,11 @@ Display::MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, Touch
 	initialize();
 }
 
-Display::MainView::~MainView()
+MainView::~MainView()
 {
 }
 
-Display::ViewType Display::MainView::update()
+ViewType MainView::update()
 {
 	// Draw Start/Stop Button
 	renderStartButton(false);
@@ -50,10 +50,10 @@ Display::ViewType Display::MainView::update()
 		tft->print(s_buffer);
 	}
 
-	return Display::ViewType::MAIN_VIEW;
+	return ViewType::MAIN_VIEW;
 }
 
-void Display::MainView::initialize()
+void MainView::initialize()
 {
 	// Draw Temp Chart
 	tft->fillRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, bg_accent);
@@ -100,7 +100,7 @@ void Display::MainView::initialize()
 	renderConfigButton(true);
 }
 
-void Display::MainView::renderStartButton(bool force)
+void MainView::renderStartButton(bool force)
 {
 	bool rerender = force;
 	TSPoint* p = ViewUtils::lerp(ts->getPoint());
@@ -139,7 +139,7 @@ void Display::MainView::renderStartButton(bool force)
 	}
 }
 
-void Display::MainView::renderConfigButton(bool force)
+void MainView::renderConfigButton(bool force)
 {
 	bool rerender = force;
 	TSPoint* p = ViewUtils::lerp(ts->getPoint());

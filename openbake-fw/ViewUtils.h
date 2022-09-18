@@ -9,12 +9,16 @@
 #include "WProgram.h"
 #endif
 
-#include "View.h"
 #include "Config.h"
 #include <TouchScreen.h>
 
 namespace ViewUtils
 {
+	enum ViewType
+	{
+		MAIN_VIEW,
+	};
+
 	struct BoundingBox
 	{
 		int16_t x;
@@ -25,7 +29,6 @@ namespace ViewUtils
 
 	char* formatf(double val, signed char width, unsigned char prec, char* sout);
 	TSPoint* lerp(TSPoint p);
-	void updateCurrentView(Display::ViewType new_view, Display::View* cur_view);
 }
 
 #endif

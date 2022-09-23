@@ -9,7 +9,9 @@
 #include "WProgram.h"
 #endif
 
+#include "Theme.h"
 #include "View.h"
+#include "ConfigNode.h"
 
 class ConfigView : public View
 {
@@ -20,7 +22,8 @@ public:
 	void initialize();
 
 private:
-
+	ConfigNode* root;
+	ConfigNode* node;
 };
 
 #endif

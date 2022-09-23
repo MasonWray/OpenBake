@@ -22,7 +22,17 @@ ConfigNode::ConfigNode(String _name, View* _exit_dest)
 
 ConfigNode::~ConfigNode()
 {
-
+	if (exit_node)
+	{
+		delete exit_dest;
+	}
+	else
+	{
+		for (int i = 0; i < num_children; i++)
+		{
+			delete children[i];
+		}
+	}
 }
 
 

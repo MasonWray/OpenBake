@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="ConfigListItem.h" />
     <ClInclude Include="ConfigNode.h" />
     <ClInclude Include="ConfigView.h" />
     <ClInclude Include="MainView.h" />
@@ -129,6 +130,7 @@
     <ClInclude Include="__vm\.openbake-fw.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ConfigListItem.cpp" />
     <ClCompile Include="ConfigNode.cpp" />
     <ClCompile Include="ConfigView.cpp" />
     <ClCompile Include="MainView.cpp" />

@@ -21,6 +21,7 @@ ConfigView::ConfigView(int width, int height, Adafruit_ILI9341* _tft, TouchScree
 
 ConfigView::~ConfigView()
 {
+	delete root;
 }
 
 void ConfigView::initialize()
@@ -34,19 +35,30 @@ void ConfigView::initialize()
 	ConfigNode* root_children[] = { profile, settings };
 	root->children = root_children;
 	node = root;
+	prev = nullptr;
 
-	tft->setCursor(padding, padding);
-	tft->println("Back");
-
-	for (int i = 0; i < node->num_children; i++)
-	{
-		tft->println(node->children[i]->name);
-	}
+	update();
 }
 
 void ConfigView::update()
 {
+	bool rerender = false;
 
+	if (node != prev)
+	{
+		rerender = true;
+	}
+
+	if (rerender)
+	{
+		tft->fillScreen(background_color);
+		for (int i = 0; i < node->num_children && i < ITEMS_PER_PAGE; i++)
+		{
+			items[i] = ConfigListItem(node, tft, ts);
+		}
+	}
+
+	prev = node;
 }
 
 

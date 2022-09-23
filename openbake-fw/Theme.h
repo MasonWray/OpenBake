@@ -11,6 +11,8 @@
 
 #include <Adafruit_ILI9341.h>
 
+#define ITEMS_PER_PAGE 7
+
 namespace Theme
 {
 	// Colors
@@ -24,6 +26,9 @@ namespace Theme
 	static uint8_t padding = 10;
 	static uint16_t chart_height = 130;
 	static uint16_t button_height = 40;
+
+	// Config List Item
+	static int16_t left_offset = padding * 4;
 }
 
 #endif

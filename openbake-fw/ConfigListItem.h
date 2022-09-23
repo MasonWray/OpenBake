@@ -27,8 +27,8 @@ public:
 private:
 	Adafruit_ILI9341* tft;
 	TouchScreen* ts;
-	void drawLeftArrow(int x, int y);
-	void drawRightArrow(int x, int y);
+	void drawLeftArrow(Adafruit_ILI9341* _tft, int x, int y);
+	void drawRightArrow(Adafruit_ILI9341* _tft, int x, int y);
 
 	ConfigNode* node;
 };

@@ -52,9 +52,9 @@ void ConfigView::update()
 	if (rerender)
 	{
 		tft->fillScreen(background_color);
-		for (int i = 0; i < node->num_children && i < ITEMS_PER_PAGE; i++)
+		for (int i = 0; i < node->num_children; i++)
 		{
-			items[i] = ConfigListItem(node, tft, ts);
+			items[i] = ConfigListItem(node, tft, ts, i);
 		}
 	}
 

@@ -19,7 +19,7 @@ class ConfigListItem
 {
 public:
 	ConfigListItem();
-	ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchScreen* _ts);
+	ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i);
 	~ConfigListItem();
 	void initialize();
 	void update();
@@ -31,6 +31,7 @@ private:
 	void drawRightArrow(Adafruit_ILI9341* _tft, int x, int y);
 
 	ConfigNode* node;
+	int i;
 };
 
 #endif

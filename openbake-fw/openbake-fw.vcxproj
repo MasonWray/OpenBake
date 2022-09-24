@@ -124,6 +124,7 @@
     <ClInclude Include="ConfigNode.h" />
     <ClInclude Include="ConfigView.h" />
     <ClInclude Include="MainView.h" />
+    <ClInclude Include="SplashView.h" />
     <ClInclude Include="Theme.h" />
     <ClInclude Include="ViewUtils.h" />
     <ClInclude Include="View.h" />
@@ -134,6 +135,7 @@
     <ClCompile Include="ConfigNode.cpp" />
     <ClCompile Include="ConfigView.cpp" />
     <ClCompile Include="MainView.cpp" />
+    <ClCompile Include="SplashView.cpp" />
     <ClCompile Include="ViewUtils.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>

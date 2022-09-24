@@ -40,8 +40,6 @@ void MainView::initialize()
 	tft->drawRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, border_color);
 
 	// Draw stats
-	tft->setFont(&FreeMono9pt7b);
-
 	tft->setCursor(padding, (padding * 4) + chart_height);
 	tft->print("Profile :");
 	tft->getTextBounds("NONE\n", tft->getCursorX(), tft->getCursorY(), &profile_box.x, &profile_box.y, &profile_box.w, &profile_box.h);
@@ -96,7 +94,6 @@ void MainView::update()
 	{
 		timer = millis();
 		float temp = tc->readFahrenheit();
-		tft->setFont(&FreeMono9pt7b);
 		tft->fillRect(temp_box.x - 1, temp_box.y - 1, temp_box.w + 2, temp_box.h + 2, background_color);
 		tft->setCursor(temp_box.x, temp_box.y + temp_box.h - 1);
 		char t_buffer[16];

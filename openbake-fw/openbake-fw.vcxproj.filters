@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Views\Main">
       <UniqueIdentifier>{d091749f-aa55-4732-981f-146b5350a3f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Views\Splash">
+      <UniqueIdentifier>{57baff75-4a74-4453-817d-89a78bc704e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Splash">
+      <UniqueIdentifier>{3b5e756e-687f-47f3-8ac5-108af007e7df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openbake-fw.ino" />
@@ -72,6 +78,9 @@
     <ClInclude Include="ConfigListItem.h">
       <Filter>Header Files\Views\Config</Filter>
     </ClInclude>
+    <ClInclude Include="SplashView.h">
+      <Filter>Header Files\Views\Splash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -91,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="ConfigListItem.cpp">
       <Filter>Source Files\Views\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashView.cpp">
+      <Filter>Source Files\Views\Splash</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

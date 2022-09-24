@@ -4,6 +4,7 @@
  Author:	Mason Wray
 */
 
+#include "SplashView.h"
 #include "ConfigView.h"
 #include "ViewUtils.h"
 #include "MainView.h"
@@ -58,7 +59,7 @@ void setup() {
 	Serial.println("Ready.");
 
 	// Initialize view controller
-	view = new MainView(W, H, &tft, &ts, &tc);
+	view = new SplashView(W, H, &tft);
 }
 
 void loop() {

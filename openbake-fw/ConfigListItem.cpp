@@ -24,11 +24,7 @@ ConfigListItem::ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchS
 	pressed = false;
 	gap = 0;
 
-	bound.w = W;
-	bound.h = H / ITEMS_PER_PAGE;
-	bound.x = 0;
-	bound.y = i * bound.h;
-
+	initBoundingBox();
 	initialize();
 }
 
@@ -44,17 +40,21 @@ ConfigListItem::ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i)
 	pressed = false;
 	gap = 0;
 
-	bound.w = W;
-	bound.h = H / ITEMS_PER_PAGE;
-	bound.x = 0;
-	bound.y = i * bound.h;
-
+	initBoundingBox();
 	initialize();
 }
 
 ConfigListItem::~ConfigListItem()
 {
 
+}
+
+void ConfigListItem::initBoundingBox()
+{
+	bound.w = W;
+	bound.h = H / ITEMS_PER_PAGE;
+	bound.x = 0;
+	bound.y = i * bound.h;
 }
 
 void ConfigListItem::initialize()

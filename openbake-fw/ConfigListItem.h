@@ -31,6 +31,7 @@ private:
 	TouchScreen* ts;
 	void drawLeftArrow(Adafruit_ILI9341* _tft, int x, int y);
 	void drawRightArrow(Adafruit_ILI9341* _tft, int x, int y);
+	void initBoundingBox();
 
 	ConfigNode* node;
 	int i;

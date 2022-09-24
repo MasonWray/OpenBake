@@ -62,7 +62,34 @@ void ConfigView::update()
 
 	for (int i = 0; i < ITEMS_PER_PAGE; i++)
 	{
-		items[i].update();
+		if (items[i].update())
+		{
+			// Back button was pressed
+			if (items[i].is_back_button)
+			{
+				if (node == root)
+				{
+					next_view = ViewType::MAIN_VIEW;
+				}
+				else
+				{
+					node = node->parent;
+				}
+			}
+
+			// Regular list item was pressed
+			else
+			{
+				if (items[i].node->exit_node)
+				{
+					next_view = items[i].node->exit_dest;
+				}
+				else
+				{
+
+				}
+			}
+		}
 	}
 
 	prev = node;

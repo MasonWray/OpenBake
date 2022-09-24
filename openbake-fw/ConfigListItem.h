@@ -24,7 +24,10 @@ public:
 	ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i);
 	~ConfigListItem();
 	void initialize();
-	void update();
+	bool update();
+
+	ConfigNode* node;
+	bool is_back_button;
 
 private:
 	Adafruit_ILI9341* tft;
@@ -33,11 +36,10 @@ private:
 	void drawRightArrow(Adafruit_ILI9341* _tft, int x, int y);
 	void initBoundingBox();
 
-	ConfigNode* node;
 	int i;
 
 	bool is_populated;
-	bool is_back_button;
+
 
 	ViewUtils::BoundingBox bound;
 	bool pressed;

@@ -80,8 +80,9 @@ void ConfigListItem::initialize()
 	}
 }
 
-void ConfigListItem::update()
+bool ConfigListItem::update()
 {
+	bool selected = false;
 	if (is_populated)
 	{
 		bool rerender = false;
@@ -107,6 +108,7 @@ void ConfigListItem::update()
 			{
 				rerender = true;
 				pressed = false;
+				selected = true;
 			}
 		}
 
@@ -141,6 +143,7 @@ void ConfigListItem::update()
 			}
 		}
 	}
+	return selected;
 }
 
 void ConfigListItem::drawLeftArrow(Adafruit_ILI9341* _tft, int x, int y)

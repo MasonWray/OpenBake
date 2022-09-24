@@ -13,7 +13,7 @@ ConfigNode::ConfigNode(String _name, ConfigNode* _parent, ConfigNode** _children
 	num_children = _num_children;
 }
 
-ConfigNode::ConfigNode(String _name, View* _exit_dest)
+ConfigNode::ConfigNode(String _name, View::ViewType _exit_dest)
 {
 	exit_node = true;
 	name = _name;
@@ -22,11 +22,7 @@ ConfigNode::ConfigNode(String _name, View* _exit_dest)
 
 ConfigNode::~ConfigNode()
 {
-	if (exit_node)
-	{
-		delete exit_dest;
-	}
-	else
+	if (!exit_node)
 	{
 		for (int i = 0; i < num_children; i++)
 		{

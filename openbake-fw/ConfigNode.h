@@ -15,7 +15,7 @@ class ConfigNode
 {
 public:
 	ConfigNode(String _name, ConfigNode* _parent, ConfigNode** _children, int _num_children);
-	ConfigNode(String name, View* exit_dest);
+	ConfigNode(String name, View::ViewType exit_dest);
 	~ConfigNode();
 
 	String name;
@@ -24,7 +24,7 @@ public:
 	int num_children;
 
 	bool exit_node;
-	View* exit_dest;
+	View::ViewType exit_dest;
 };
 
 #endif

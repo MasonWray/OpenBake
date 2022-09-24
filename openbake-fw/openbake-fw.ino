@@ -38,7 +38,7 @@ int minX = 500, minY = 500, maxX = 0, maxY = 0;
 View* view;
 
 void setup() {
-	Serial.begin(9600);
+	Serial.begin(115200);
 	while (!Serial) delay(1);
 
 	// Initialize RGB LED

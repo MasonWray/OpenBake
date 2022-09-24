@@ -19,11 +19,14 @@ ConfigListItem::ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchS
 	initialize();
 }
 
-ConfigListItem::ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts)
+ConfigListItem::ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i)
 {
 	tft = _tft;
 	ts = _ts;
+	i = _i;
 	is_back_button = true;
+
+	initialize();
 }
 
 ConfigListItem::~ConfigListItem()
@@ -36,21 +39,21 @@ void ConfigListItem::initialize()
 	uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
 	int16_t height = H / ITEMS_PER_PAGE;
 
-	/*tft->getTextBounds("Back", 0, H, &t_x, &t_y, &t_w, &t_h);
-	tft->setCursor(left_offset, (height / 2) + (t_h / 2));
-	tft->println("Back");
-	drawLeftArrow(tft, padding, height / 2);
-	tft->drawFastHLine(0, height, W, border_color);*/
+	String name = is_back_button ? "Back" : node->name;
 
 	int line_y = (i + 1) * height;
 	tft->drawFastHLine(0, line_y, W, border_color);
-	tft->getTextBounds(node->name, 0, H, &t_x, &t_y, &t_w, &t_h);
+	tft->getTextBounds(name, 0, H, &t_x, &t_y, &t_w, &t_h);
 	int text_x = left_offset;
 	int text_y = line_y - (height / 2) + (t_h / 2);
 	tft->setCursor(text_x, text_y);
-	tft->println(node->name);
+	tft->println(name);
 
-	if (!node->exit_node)
+	if (is_back_button)
+	{
+		drawLeftArrow(tft, padding, height / 2);
+	}
+	else if (!node->exit_node)
 	{
 		drawRightArrow(tft, W - padding, line_y - (height / 2));
 	}

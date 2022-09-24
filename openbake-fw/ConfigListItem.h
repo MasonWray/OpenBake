@@ -20,7 +20,7 @@ class ConfigListItem
 public:
 	ConfigListItem();
 	ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i);
-	ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts);
+	ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i);
 	~ConfigListItem();
 	void initialize();
 	void update();

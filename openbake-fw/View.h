@@ -20,6 +20,7 @@ class View
 public:
 	enum ViewType
 	{
+		SPLASH_VIEW,
 		MAIN_VIEW,
 		CONFIG_VIEW,
 	};

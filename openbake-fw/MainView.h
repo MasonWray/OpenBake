@@ -12,7 +12,6 @@
 #include "View.h"
 #include "Theme.h"
 #include "ViewUtils.h"
-#include <Fonts/FreeMono9pt7b.h>
 
 #define TEMP_UPDATE 1000
 

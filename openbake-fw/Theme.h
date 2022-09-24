@@ -11,6 +11,7 @@
 
 #include <Adafruit_ILI9341.h>
 
+// Config View
 #define ITEMS_PER_PAGE 7
 
 namespace Theme

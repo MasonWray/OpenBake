@@ -32,6 +32,9 @@ MainView::~MainView()
 
 void MainView::initialize()
 {
+	// Clear Display
+	tft->fillScreen(background_color);
+
 	// Draw Temp Chart
 	tft->fillRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, bg_accent);
 	tft->drawRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, border_color);

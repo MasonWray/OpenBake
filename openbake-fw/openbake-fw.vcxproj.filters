@@ -19,17 +19,23 @@
     <Filter Include="Source Files\Views">
       <UniqueIdentifier>{4ee9b19a-bdae-43fc-aa0f-b83e83172d2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Components">
-      <UniqueIdentifier>{f62aaeca-5ee7-4cb9-aa0a-a6bbc8bb8a2a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Display Interface">
       <UniqueIdentifier>{0ab13f36-d21b-4399-be41-e93d8ee3979b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Views">
       <UniqueIdentifier>{9c714d7a-71bf-4364-aece-08074d226480}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components">
-      <UniqueIdentifier>{8f80801c-9dce-41b8-a8c0-cb71cedbe167}</UniqueIdentifier>
+    <Filter Include="Header Files\Views\Config">
+      <UniqueIdentifier>{bc39ac06-9269-4e26-b19d-e9abe308ecb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views\Main">
+      <UniqueIdentifier>{aa927275-4359-4e83-acda-b10b5c81597a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Config">
+      <UniqueIdentifier>{dd9b0375-2c18-49d4-a581-18d9a493436a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Main">
+      <UniqueIdentifier>{d091749f-aa55-4732-981f-146b5350a3f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,9 +51,6 @@
     <ClInclude Include="View.h">
       <Filter>Header Files\Display Interface</Filter>
     </ClInclude>
-    <ClInclude Include="MainView.h">
-      <Filter>Header Files\Views</Filter>
-    </ClInclude>
     <ClInclude Include="Theme.h">
       <Filter>Header Files\Display Interface</Filter>
     </ClInclude>
@@ -57,22 +60,37 @@
     <ClInclude Include="Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainView.h">
+      <Filter>Header Files\Views\Main</Filter>
+    </ClInclude>
     <ClInclude Include="ConfigView.h">
-      <Filter>Header Files\Views</Filter>
+      <Filter>Header Files\Views\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigNode.h">
+      <Filter>Header Files\Views\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigListItem.h">
+      <Filter>Header Files\Views\Config</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
       <Filter>Source Files\Display Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="MainView.cpp">
-      <Filter>Source Files\Views</Filter>
-    </ClCompile>
     <ClCompile Include="ViewUtils.cpp">
       <Filter>Source Files\Display Interfaces</Filter>
     </ClCompile>
     <ClCompile Include="ConfigView.cpp">
-      <Filter>Source Files\Views</Filter>
+      <Filter>Source Files\Views\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="MainView.cpp">
+      <Filter>Source Files\Views\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigNode.cpp">
+      <Filter>Source Files\Views\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigListItem.cpp">
+      <Filter>Source Files\Views\Config</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

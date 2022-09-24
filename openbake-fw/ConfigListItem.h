@@ -20,6 +20,7 @@ class ConfigListItem
 public:
 	ConfigListItem();
 	ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchScreen* _ts, int _i);
+	ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts);
 	~ConfigListItem();
 	void initialize();
 	void update();
@@ -32,6 +33,8 @@ private:
 
 	ConfigNode* node;
 	int i;
+
+	bool is_back_button;
 };
 
 #endif

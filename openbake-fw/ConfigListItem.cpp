@@ -14,8 +14,16 @@ ConfigListItem::ConfigListItem(ConfigNode* _node, Adafruit_ILI9341* _tft, TouchS
 	tft = _tft;
 	ts = _ts;
 	i = _i;
+	is_back_button = false;
 
 	initialize();
+}
+
+ConfigListItem::ConfigListItem(Adafruit_ILI9341* _tft, TouchScreen* _ts)
+{
+	tft = _tft;
+	ts = _ts;
+	is_back_button = true;
 }
 
 ConfigListItem::~ConfigListItem()
@@ -36,11 +44,11 @@ void ConfigListItem::initialize()
 
 	int line_y = (i + 1) * height;
 	tft->drawFastHLine(0, line_y, W, border_color);
-	tft->getTextBounds(node->children[i]->name, 0, H, &t_x, &t_y, &t_w, &t_h);
+	tft->getTextBounds(node->name, 0, H, &t_x, &t_y, &t_w, &t_h);
 	int text_x = left_offset;
 	int text_y = line_y - (height / 2) + (t_h / 2);
 	tft->setCursor(text_x, text_y);
-	tft->println(node->children[i]->name);
+	tft->println(node->name);
 
 	if (!node->exit_node)
 	{

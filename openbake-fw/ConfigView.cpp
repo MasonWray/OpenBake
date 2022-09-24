@@ -60,6 +60,11 @@ void ConfigView::update()
 		}
 	}
 
+	for (int i = 0; i < ITEMS_PER_PAGE; i++)
+	{
+		items[i].update();
+	}
+
 	prev = node;
 }
 

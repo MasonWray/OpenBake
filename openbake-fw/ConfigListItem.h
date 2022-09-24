@@ -12,6 +12,7 @@
 #include "Config.h"
 #include "Theme.h"
 #include "ConfigNode.h"
+#include "ViewUtils.h"
 #include <Adafruit_ILI9341.h>
 #include <TouchScreen.h>
 
@@ -34,7 +35,12 @@ private:
 	ConfigNode* node;
 	int i;
 
+	bool is_populated;
 	bool is_back_button;
+
+	ViewUtils::BoundingBox bound;
+	bool pressed;
+	int gap;
 };
 
 #endif

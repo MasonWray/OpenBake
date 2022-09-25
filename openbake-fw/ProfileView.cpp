@@ -34,7 +34,7 @@ void ProfileView::initialize()
 
 void ProfileView::update()
 {
-
+	test.update();
 }
 
 

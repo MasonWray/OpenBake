@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppState.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="ConfigListItem.h" />
     <ClInclude Include="ConfigNode.h" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AppState.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="ConfigListItem.cpp" />
     <ClCompile Include="ConfigNode.cpp" />
     <ClCompile Include="ConfigView.cpp" />

@@ -37,9 +37,7 @@ private:
 	void initBoundingBox();
 
 	int i;
-
 	bool is_populated;
-
 
 	ViewUtils::BoundingBox bound;
 	bool pressed;

@@ -25,7 +25,11 @@ ProfileView::~ProfileView()
 
 void ProfileView::initialize()
 {
+	using namespace ViewUtils;
+
 	tft->fillScreen(background_color);
+	BoundingBox t; t.x = 20; t.y = 40; t.w = 100; t.h = 40;
+	test = Button("Test", t, tft, ts);
 }
 
 void ProfileView::update()

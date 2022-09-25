@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Views\Profile">
       <UniqueIdentifier>{71831482-064f-43dd-908a-c045bf066b77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{710bbdae-c2c7-4372-b723-cf5de9eb31bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{6da508d5-ce41-4a90-bd70-51fa36c87e62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openbake-fw.ino" />
@@ -102,6 +108,9 @@
     <ClInclude Include="ProfileView.h">
       <Filter>Header Files\Views\Profile</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -133,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="ProfileView.cpp">
       <Filter>Source Files\Views\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

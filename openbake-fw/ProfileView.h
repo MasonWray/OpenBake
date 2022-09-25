@@ -11,6 +11,7 @@
 
 #include "View.h"
 #include "Theme.h"
+#include "Button.h"
 
 class ProfileView : public View
 {
@@ -20,6 +21,9 @@ public:
 
 	void initialize();
 	void update();
+
+private:
+	Button test;
 };
 
 #endif

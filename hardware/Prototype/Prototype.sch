@@ -232,4 +232,51 @@ Wire Wire Line
 	3850 3550 3900 3550
 Wire Wire Line
 	3900 3450 3850 3450
+$Comp
+L Connector:Screw_Terminal_01x02 J1
+U 1 1 63311BC9
+P 8600 2350
+F 0 "J1" H 8680 2342 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8680 2251 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 8600 2350 50  0001 C CNN
+F 3 "~" H 8600 2350 50  0001 C CNN
+	1    8600 2350
+	1    0    0    -1  
+$EndComp
+Text GLabel 8300 2450 0    50   Input ~ 0
+SSR_EN
+Text GLabel 5550 3400 0    50   Input ~ 0
+SSR_EN
+$Comp
+L Device:R_Small R1
+U 1 1 63314173
+P 8200 2350
+F 0 "R1" V 8004 2350 50  0000 C CNN
+F 1 "10k" V 8095 2350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0411_L9.9mm_D3.6mm_P15.24mm_Horizontal" H 8200 2350 50  0001 C CNN
+F 3 "~" H 8200 2350 50  0001 C CNN
+	1    8200 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 63314A7E
+P 7850 2400
+F 0 "#PWR0101" H 7850 2150 50  0001 C CNN
+F 1 "GND" H 7855 2227 50  0000 C CNN
+F 2 "" H 7850 2400 50  0001 C CNN
+F 3 "" H 7850 2400 50  0001 C CNN
+	1    7850 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 2450 8400 2450
+Wire Wire Line
+	8400 2350 8300 2350
+Wire Wire Line
+	8100 2350 7850 2350
+Wire Wire Line
+	7850 2350 7850 2400
+Wire Wire Line
+	5550 3400 5600 3400
 $EndSCHEMATC

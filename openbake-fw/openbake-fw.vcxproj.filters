@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Views\Splash">
       <UniqueIdentifier>{3b5e756e-687f-47f3-8ac5-108af007e7df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{e7d4017d-fafa-42de-afe4-edfa1f4738c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{5d0306fd-8150-49b6-96e2-78d216ecd4d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openbake-fw.ino" />
@@ -81,6 +87,12 @@
     <ClInclude Include="SplashView.h">
       <Filter>Header Files\Views\Splash</Filter>
     </ClInclude>
+    <ClInclude Include="AppState.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="SolderProfile.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -103,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="SplashView.cpp">
       <Filter>Source Files\Views\Splash</Filter>
+    </ClCompile>
+    <ClCompile Include="AppState.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="SolderProfile.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

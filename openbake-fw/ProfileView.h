@@ -12,6 +12,7 @@
 #include "View.h"
 #include "Theme.h"
 #include "Button.h"
+#include "SolderProfile.h"
 
 class ProfileView : public View
 {
@@ -23,7 +24,9 @@ public:
 	void update();
 
 private:
-	Button test;
+	Button Sn63_Pb37;
+	Button SAC305;
+	Button cancel;
 };
 
 #endif

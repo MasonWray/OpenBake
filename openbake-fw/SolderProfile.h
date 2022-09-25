@@ -12,14 +12,21 @@
 class SolderProfile
 {
 public:
+	struct ProfileZone
+	{
+		int target;
+		int duration;
+	};
+
 	SolderProfile();
-	SolderProfile(float _preheat, int _soak, float _heat, int _flow, float _cooldown);
+	SolderProfile(String _name, ProfileZone _preheat, ProfileZone _soak, ProfileZone _heat, ProfileZone _flow, ProfileZone _cooldown);
 	~SolderProfile();
-	float preheat;
-	int soak;
-	float heat;
-	int flow;
-	float cooldown;
+	String name;
+	ProfileZone preheat;
+	ProfileZone soak;
+	ProfileZone heat;
+	ProfileZone flow;
+	ProfileZone cooldown;
 };
 
 #endif

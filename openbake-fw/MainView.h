@@ -13,6 +13,9 @@
 #include "View.h"
 #include "Theme.h"
 #include "ViewUtils.h"
+#include <Adafruit_ILI9341.h>
+#include <TouchScreen.h>
+#include <Adafruit_MAX31855.h>
 
 #define TEMP_UPDATE 1000
 

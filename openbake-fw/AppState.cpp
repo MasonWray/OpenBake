@@ -6,10 +6,9 @@
 
 AppState::AppState()
 {
+	profile_selected = false;
 }
 
 AppState::~AppState()
 {
 }
-
-

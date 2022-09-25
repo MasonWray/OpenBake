@@ -7,7 +7,7 @@
 using namespace Theme;
 using namespace ViewUtils;
 
-MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc)
+MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc, AppState* _state)
 {
 	type = ViewType::MAIN_VIEW;
 	next_view = ViewType::MAIN_VIEW;
@@ -16,6 +16,7 @@ MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _
 	tft = _tft;
 	ts = _ts;
 	tc = _tc;
+	state = _state;
 
 	timer = millis();
 	start_pressed = false;

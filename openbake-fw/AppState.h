@@ -16,6 +16,7 @@ class AppState
 public:
 	AppState();
 	~AppState();
+	bool profile_selected;
 	SolderProfile current_profile;
 };
 

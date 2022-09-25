@@ -9,6 +9,7 @@
 #include "WProgram.h"
 #endif
 
+#include "AppState.h"
 #include "ViewUtils.h"
 #include <Arduino.h>
 #include <Adafruit_ILI9341.h>
@@ -25,6 +26,7 @@ public:
 		CONFIG_VIEW,
 	};
 
+	AppState* state;
 	ViewType type;
 	int display_width;
 	int display_height;

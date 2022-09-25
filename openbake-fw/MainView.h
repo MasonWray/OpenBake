@@ -9,6 +9,7 @@
 #include "WProgram.h"
 #endif
 
+#include "AppState.h"
 #include "View.h"
 #include "Theme.h"
 #include "ViewUtils.h"
@@ -18,7 +19,7 @@
 class MainView : public View
 {
 public:
-	MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc);
+	MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _ts, Adafruit_MAX31855* _tc, AppState* _state);
 	~MainView();
 	void update();
 	void initialize();

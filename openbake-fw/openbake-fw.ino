@@ -4,6 +4,7 @@
  Author:	Mason Wray
 */
 
+#include "AppState.h"
 #include "SplashView.h"
 #include "ConfigView.h"
 #include "ViewUtils.h"
@@ -36,6 +37,7 @@ Adafruit_MAX31855 tc = Adafruit_MAX31855(MAXCLK, MAXCS, MAXDO);
 
 int minX = 500, minY = 500, maxX = 0, maxY = 0;
 
+AppState state = AppState();
 View* view;
 
 void setup() {
@@ -69,9 +71,13 @@ void loop() {
 	{
 		switch (view->next_view)
 		{
+		case View::SPLASH_VIEW:
+			delete view;
+			view = new SplashView(W, H, &tft);
+			break;
 		case View::MAIN_VIEW:
 			delete view;
-			view = new MainView(W, H, &tft, &ts, &tc);
+			view = new MainView(W, H, &tft, &ts, &tc, &state);
 			break;
 		case View::CONFIG_VIEW:
 			delete view;

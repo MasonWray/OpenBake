@@ -30,7 +30,7 @@ void ConfigView::initialize()
 
 	root = new ConfigNode("Config", nullptr, nullptr, 2);
 
-	ConfigNode* profile = new ConfigNode("Profile", root, nullptr, 0);
+	ConfigNode* profile = new ConfigNode("Profile", ViewType::PROFILE_VIEW);
 	ConfigNode* settings = new ConfigNode("Settings", root, nullptr, 0);
 	ConfigNode* root_children[] = { profile, settings };
 	root->children = root_children;

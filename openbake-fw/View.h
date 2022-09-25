@@ -24,6 +24,7 @@ public:
 		SPLASH_VIEW,
 		MAIN_VIEW,
 		CONFIG_VIEW,
+		PROFILE_VIEW,
 	};
 
 	AppState* state;

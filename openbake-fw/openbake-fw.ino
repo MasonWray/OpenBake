@@ -7,6 +7,7 @@
 #include "AppState.h"
 #include "SplashView.h"
 #include "ConfigView.h"
+#include "ProfileView.h"
 #include "ViewUtils.h"
 #include "MainView.h"
 #include "View.h"
@@ -83,6 +84,9 @@ void loop() {
 			delete view;
 			view = new ConfigView(W, H, &tft, &ts, &tc);
 			break;
+		case View::PROFILE_VIEW:
+			delete view;
+			view = new ProfileView(W, H, &tft, &ts, &state);
 		default:
 			break;
 		}

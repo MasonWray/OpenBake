@@ -43,8 +43,17 @@ void MainView::initialize()
 	// Draw stats
 	tft->setCursor(padding, (padding * 4) + chart_height);
 	tft->print("Profile :");
-	tft->getTextBounds("NONE\n", tft->getCursorX(), tft->getCursorY(), &profile_box.x, &profile_box.y, &profile_box.w, &profile_box.h);
-	tft->printf("NONE\n");
+	if (state->profile_selected)
+	{
+		tft->getTextBounds(state->current_profile.name, tft->getCursorX(), tft->getCursorY(), &profile_box.x, &profile_box.y, &profile_box.w, &profile_box.h);
+		tft->printf(state->current_profile.name.c_str());
+		tft->println();
+	}
+	else
+	{
+		tft->getTextBounds("NONE\n", tft->getCursorX(), tft->getCursorY(), &profile_box.x, &profile_box.y, &profile_box.w, &profile_box.h);
+		tft->printf("NONE\n");
+	}
 
 	tft->setCursor(padding, tft->getCursorY() + padding);
 	tft->print("Time    :");

@@ -13,6 +13,7 @@
 #include "View.h"
 #include "Theme.h"
 #include "ViewUtils.h"
+#include "TempChart.h"
 #include <Adafruit_ILI9341.h>
 #include <TouchScreen.h>
 #include <Adafruit_MAX31855.h>
@@ -31,6 +32,8 @@ public:
 
 private:
 	int timer;
+	TempChart temp_chart;
+	float temp;
 	ViewUtils::BoundingBox start_box;
 	ViewUtils::BoundingBox config_box;
 	ViewUtils::BoundingBox profile_box;

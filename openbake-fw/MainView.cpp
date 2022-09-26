@@ -37,8 +37,8 @@ void MainView::initialize()
 	tft->fillScreen(background_color);
 
 	// Draw Temp Chart
-	tft->fillRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, bg_accent);
-	tft->drawRoundRect(padding, padding, display_width - (2 * padding), chart_height, radius, border_color);
+
+	temp_chart = TempChart({ padding, padding, (uint16_t)(display_width - (padding * 2)), chart_height }, state, tft, ts);
 
 	// Draw stats
 	tft->setCursor(padding, (padding * 4) + chart_height);
@@ -90,8 +90,14 @@ void MainView::initialize()
 
 void MainView::update()
 {
+	// Update Temp Chart
+	temp_chart.update(temp);
+
 	// Draw Start/Stop Button
-	renderStartButton(false);
+	if (renderStartButton(false))
+	{
+		state->startCycle();
+	}
 
 	// Draw Config Button
 	if (renderConfigButton(false))
@@ -103,7 +109,7 @@ void MainView::update()
 	if (millis() - timer > TEMP_UPDATE)
 	{
 		timer = millis();
-		float temp = tc->readFahrenheit();
+		temp = tc->readFahrenheit();
 		tft->fillRect(temp_box.x - 1, temp_box.y - 1, temp_box.w + 2, temp_box.h + 2, background_color);
 		tft->setCursor(temp_box.x, temp_box.y + temp_box.h - 1);
 		char t_buffer[16];

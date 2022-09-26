@@ -44,14 +44,16 @@ void ProfileView::update()
 {
 	if (Sn63_Pb37.update())
 	{
-		state->current_profile = SolderProfile("Sn63/Pb37", { 150, 60 }, { 165, 120 }, { 230, 30 }, { 230, 20 }, { 70, 60 });
+		String guid = "4a06fc45-c15e-4a75-9baa-19ac5d305c25";
+		state->current_profile = SolderProfile("Sn63/Pb37", guid, { 150, 60 }, { 165, 120 }, { 230, 30 }, { 230, 20 }, { state->room_temp, 60 });
 		state->profile_selected = true;
 		next_view = View::MAIN_VIEW;
 	}
 
 	if (SAC305.update())
 	{
-		state->current_profile = SolderProfile("SAC305", { 150, 60 }, { 180, 120 }, { 250, 30 }, { 250, 15 }, { 70, 60 });
+		String guid = "b7d3935e-5cb0-4e22-928b-0113a2981066";
+		state->current_profile = SolderProfile("SAC305", guid, { 150, 60 }, { 180, 120 }, { 250, 30 }, { 250, 15 }, { state->room_temp, 60 });
 		state->profile_selected = true;
 		next_view = View::MAIN_VIEW;
 	}

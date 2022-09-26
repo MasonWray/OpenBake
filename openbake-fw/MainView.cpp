@@ -40,7 +40,7 @@ void MainView::initialize()
 	temp_chart = TempChart({ padding, padding, (uint16_t)(display_width - (padding * 2)), chart_height }, state, tft, ts);
 
 	// Draw stats
-	const float spacing = 0.4;
+	const float spacing = 0.38;
 	uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
 	String profile_name = state->profile_selected ? state->current_profile.name : "NONE";
 

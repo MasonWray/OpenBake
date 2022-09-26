@@ -30,6 +30,9 @@ void KeyVal::initialize()
 {
 	tft->setCursor(bound.x, bound.y + bound.h);
 	tft->print(key);
+	tft->setCursor(bound.x + (bound.w * key_width), tft->getCursorY());
+	tft->print(": ");
+	tft->print(val);
 }
 
 void KeyVal::update()

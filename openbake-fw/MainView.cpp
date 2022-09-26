@@ -19,10 +19,6 @@ MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _
 	state = _state;
 
 	timer = millis();
-	/*start_pressed = false;
-	config_pressed = false;
-	start_gap = 0;
-	config_gap = 0;*/
 
 	initialize();
 }

@@ -37,9 +37,16 @@ void KeyVal::initialize()
 
 void KeyVal::update()
 {
+	using namespace Theme;
+
 	if (!last_val.equals(val))
 	{
-
+		tft->setCursor(bound.x, bound.y + bound.h);
+		tft->fillRect(bound.x + (bound.w * key_width), bound.y, ((float)bound.w * (1.0 - (float)key_width)), bound.h + 2, background_color);
+		tft->setCursor(bound.x + (bound.w * key_width), tft->getCursorY());
+		tft->print(": ");
+		tft->print(val);
+		last_val = val;
 	}
 }
 

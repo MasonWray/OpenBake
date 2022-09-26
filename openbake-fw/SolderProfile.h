@@ -19,14 +19,17 @@ public:
 	};
 
 	SolderProfile();
-	SolderProfile(String _name, ProfileZone _preheat, ProfileZone _soak, ProfileZone _heat, ProfileZone _flow, ProfileZone _cooldown);
+	SolderProfile(String _name, String _guid, ProfileZone _preheat, ProfileZone _soak, ProfileZone _heat, ProfileZone _flow, ProfileZone _cooldown);
 	~SolderProfile();
 	String name;
+	String guid;
 	ProfileZone preheat;
 	ProfileZone soak;
 	ProfileZone heat;
 	ProfileZone flow;
 	ProfileZone cooldown;
+
+	int getTotalDuration();
 };
 
 #endif

@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>xml;json;txt;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Display Interfaces">
-      <UniqueIdentifier>{54ad98db-9644-4710-8423-9111dbfa33c9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Views">
       <UniqueIdentifier>{4ee9b19a-bdae-43fc-aa0f-b83e83172d2c}</UniqueIdentifier>
     </Filter>
@@ -60,6 +57,21 @@
     </Filter>
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{6da508d5-ce41-4a90-bd70-51fa36c87e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Button">
+      <UniqueIdentifier>{5e50dc3b-a811-4284-84fc-3190b12e9359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\TempChart">
+      <UniqueIdentifier>{d7983762-0e6d-48ac-a72b-e29a8846a4d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Button">
+      <UniqueIdentifier>{bf6234fb-97c0-450b-aa30-bbacf0bfbaa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\TempChart">
+      <UniqueIdentifier>{40166a75-5f2b-463f-a5b9-3ef02de2f9f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Display Interface">
+      <UniqueIdentifier>{54ad98db-9644-4710-8423-9111dbfa33c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -109,15 +121,18 @@
       <Filter>Header Files\Views\Profile</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>Header Files\Components</Filter>
+      <Filter>Header Files\Components\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="TempChart.h">
+      <Filter>Header Files\Components\TempChart</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
-      <Filter>Source Files\Display Interfaces</Filter>
+      <Filter>Source Files\Display Interface</Filter>
     </ClCompile>
     <ClCompile Include="ViewUtils.cpp">
-      <Filter>Source Files\Display Interfaces</Filter>
+      <Filter>Source Files\Display Interface</Filter>
     </ClCompile>
     <ClCompile Include="ConfigView.cpp">
       <Filter>Source Files\Views\Config</Filter>
@@ -144,7 +159,10 @@
       <Filter>Source Files\Views\Profile</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source Files\Components\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="TempChart.cpp">
+      <Filter>Source Files\Components\TempChart</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

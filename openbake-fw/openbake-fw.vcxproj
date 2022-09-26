@@ -125,6 +125,7 @@
     <ClInclude Include="ConfigListItem.h" />
     <ClInclude Include="ConfigNode.h" />
     <ClInclude Include="ConfigView.h" />
+    <ClInclude Include="KeyVal.h" />
     <ClInclude Include="MainView.h" />
     <ClInclude Include="ProfileView.h" />
     <ClInclude Include="SolderProfile.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="ConfigListItem.cpp" />
     <ClCompile Include="ConfigNode.cpp" />
     <ClCompile Include="ConfigView.cpp" />
+    <ClCompile Include="KeyVal.cpp" />
     <ClCompile Include="MainView.cpp" />
     <ClCompile Include="ProfileView.cpp" />
     <ClCompile Include="SolderProfile.cpp" />

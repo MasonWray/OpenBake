@@ -73,6 +73,12 @@
     <Filter Include="Source Files\Display Interface">
       <UniqueIdentifier>{54ad98db-9644-4710-8423-9111dbfa33c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components\KeyValue">
+      <UniqueIdentifier>{0a772905-d6d1-4ade-bb36-1f16abe55c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\KeyVal">
+      <UniqueIdentifier>{dbb9845c-818b-4ddc-8863-6bcc982deb4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openbake-fw.ino" />
@@ -126,6 +132,9 @@
     <ClInclude Include="TempChart.h">
       <Filter>Header Files\Components\TempChart</Filter>
     </ClInclude>
+    <ClInclude Include="KeyVal.h">
+      <Filter>Header Files\Components\KeyValue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -163,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="TempChart.cpp">
       <Filter>Source Files\Components\TempChart</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyVal.cpp">
+      <Filter>Source Files\Components\KeyVal</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

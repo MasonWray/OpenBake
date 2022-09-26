@@ -13,6 +13,7 @@
 #include "View.h"
 #include "Theme.h"
 #include "Button.h"
+#include "KeyVal.h"
 #include "ViewUtils.h"
 #include "TempChart.h"
 #include <Adafruit_ILI9341.h>
@@ -31,8 +32,12 @@ public:
 
 private:
 	int timer;
-	TempChart temp_chart;
 	float temp;
+
+	TempChart temp_chart;
+	KeyVal profile_kv;
+	KeyVal time_kv;
+	KeyVal temp_kv;
 	Button start;
 	Button config;
 

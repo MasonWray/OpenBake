@@ -12,6 +12,7 @@
 #include "AppState.h"
 #include "View.h"
 #include "Theme.h"
+#include "Button.h"
 #include "ViewUtils.h"
 #include "TempChart.h"
 #include <Adafruit_ILI9341.h>
@@ -27,22 +28,17 @@ public:
 	~MainView();
 	void update();
 	void initialize();
-	bool renderStartButton(bool force);
-	bool renderConfigButton(bool force);
 
 private:
 	int timer;
 	TempChart temp_chart;
 	float temp;
-	ViewUtils::BoundingBox start_box;
-	ViewUtils::BoundingBox config_box;
+	Button start;
+	Button config;
+
 	ViewUtils::BoundingBox profile_box;
 	ViewUtils::BoundingBox time_box;
 	ViewUtils::BoundingBox temp_box;
-	bool start_pressed;
-	bool config_pressed;
-	int start_gap;
-	int config_gap;
 };
 
 #endif

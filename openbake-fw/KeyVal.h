@@ -33,13 +33,5 @@ private:
 	String last_val;
 };
 
-KeyVal::KeyVal()
-{
-}
-
-KeyVal::~KeyVal()
-{
-}
-
 #endif
 

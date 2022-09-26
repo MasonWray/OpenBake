@@ -37,33 +37,24 @@ void MainView::initialize()
 	tft->fillScreen(background_color);
 
 	// Draw Temp Chart
-
 	temp_chart = TempChart({ padding, padding, (uint16_t)(display_width - (padding * 2)), chart_height }, state, tft, ts);
 
 	// Draw stats
-	tft->setCursor(padding, (padding * 4) + chart_height);
-	tft->print("Profile :");
-	if (state->profile_selected)
-	{
-		tft->getTextBounds(state->current_profile.name, tft->getCursorX(), tft->getCursorY(), &profile_box.x, &profile_box.y, &profile_box.w, &profile_box.h);
-		tft->printf(state->current_profile.name.c_str());
-		tft->println();
-	}
-	else
-	{
-		tft->getTextBounds("NONE\n", tft->getCursorX(), tft->getCursorY(), &profile_box.x, &profile_box.y, &profile_box.w, &profile_box.h);
-		tft->printf("NONE\n");
-	}
+	const float spacing = 0.4;
+	uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
+	String profile_name = state->profile_selected ? state->current_profile.name : "NONE";
 
-	tft->setCursor(padding, tft->getCursorY() + padding);
-	tft->print("Time    :");
-	tft->getTextBounds("0:00\n", tft->getCursorX(), tft->getCursorY(), &time_box.x, &time_box.y, &time_box.w, &time_box.h);
-	tft->printf("0:00\n");
+	ViewUtils::BoundingBox profile_box = { (int16_t)padding, (int16_t)((padding * 3) + chart_height), (uint16_t)(display_width - (padding * 2)), 0 };
+	tft->getTextBounds(profile_name, profile_box.x, profile_box.y, &t_x, &t_y, &t_w, &t_h);
+	profile_box.h = t_h;
+	ViewUtils::BoundingBox time_box = profile_box;
+	time_box.y += padding * 3;
+	ViewUtils::BoundingBox temp_box = time_box;
+	temp_box.y += padding * 3;
 
-	tft->setCursor(padding, tft->getCursorY() + padding);
-	tft->print("Temp    :");
-	tft->getTextBounds("---.-- F\n", tft->getCursorX(), tft->getCursorY(), &temp_box.x, &temp_box.y, &temp_box.w, &temp_box.h);
-	tft->printf("---.-- F\n");
+	profile_kv = KeyVal("Profile", profile_name, profile_box, spacing, tft);
+	time_kv = KeyVal("Time", "00:00", time_box, spacing, tft);
+	temp_kv = KeyVal("Temp", "--.-- C", temp_box, spacing, tft);
 
 	//Calculate Button Sizing
 	int button_width = (display_width - (padding * 3)) / 2;
@@ -80,8 +71,25 @@ void MainView::initialize()
 
 void MainView::update()
 {
+	// Update temperature
+	if (millis() - timer > TEMP_UPDATE)
+	{
+		timer = millis();
+		temp = tc->readCelsius();
+		char t_buffer[16];
+		char s_buffer[16];
+		ViewUtils::formatf(temp, 6, 2, t_buffer);
+		sprintf(s_buffer, "%s %c", t_buffer, 'C');
+		temp_kv.setValue(s_buffer);
+	}
+
 	// Update Temp Chart
 	temp_chart.update(temp);
+
+	// Update KeyVals
+	profile_kv.update();
+	time_kv.update();
+	temp_kv.update();
 
 	// Draw Start/Stop Button
 	if (start.update())
@@ -93,19 +101,5 @@ void MainView::update()
 	if (config.update())
 	{
 		next_view = ViewType::CONFIG_VIEW;
-	}
-
-	// Update temperature
-	if (millis() - timer > TEMP_UPDATE)
-	{
-		timer = millis();
-		temp = tc->readFahrenheit();
-		tft->fillRect(temp_box.x - 1, temp_box.y - 1, temp_box.w + 2, temp_box.h + 2, background_color);
-		tft->setCursor(temp_box.x, temp_box.y + temp_box.h - 1);
-		char t_buffer[16];
-		char s_buffer[16];
-		ViewUtils::formatf(temp, 6, 2, t_buffer);
-		sprintf(s_buffer, "%s %c", t_buffer, 'F');
-		tft->print(s_buffer);
 	}
 }

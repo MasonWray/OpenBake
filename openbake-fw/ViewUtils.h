@@ -22,7 +22,7 @@ namespace ViewUtils
 		uint16_t h;
 	};
 
-	char* formatf(double val, signed char width, unsigned char prec, char* sout);
+	String formatf(double val, signed char width, unsigned char prec, char* sout);
 	TSPoint* lerp(TSPoint p);
 
 	String mstot(int ms);

@@ -79,6 +79,17 @@ void MainView::update()
 		ViewUtils::formatf(temp, 6, 2, t_buffer);
 		sprintf(s_buffer, "%s %c", t_buffer, 'C');
 		temp_kv.setValue(s_buffer);
+
+		// Update time KeyVal
+		if (state->running)
+		{
+			time_kv.setValue(ViewUtils::mstot(timer - state->last_start));
+		}
+		else
+		{
+			time_kv.setValue(ViewUtils::mstot(0));
+		}
+
 	}
 
 	// Update Temp 

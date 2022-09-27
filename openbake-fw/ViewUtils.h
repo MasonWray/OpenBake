@@ -24,6 +24,8 @@ namespace ViewUtils
 
 	char* formatf(double val, signed char width, unsigned char prec, char* sout);
 	TSPoint* lerp(TSPoint p);
+
+	String mstot(int ms);
 }
 
 #endif

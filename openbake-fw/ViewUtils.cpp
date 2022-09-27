@@ -21,3 +21,15 @@ TSPoint* ViewUtils::lerp(TSPoint p)
 	TSPoint* r = new TSPoint(x, y, p.z);
 	return r;
 }
+
+#define MINUTE 60000
+#define SECOND 1000
+
+String ViewUtils::mstot(int ms)
+{
+	int mins = ms / MINUTE;
+	int secs = (ms - (mins * MINUTE)) / SECOND;
+	String minstr = String(mins);
+	String secstr = String(secs);
+	return String(minstr + ":" + secstr);
+}

@@ -11,6 +11,7 @@
 
 #include "Config.h"
 #include "AppState.h"
+#include "SolderProfile.h"
 #include <Adafruit_MAX31855.h>
 
 class TempController
@@ -28,7 +29,7 @@ private:
 	int pin;
 	bool heating;
 
-	int getTargetTemp();
+	int getTargetTemp(int secs);
 	int getActualTemp();
 
 	void heat();

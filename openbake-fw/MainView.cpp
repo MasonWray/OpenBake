@@ -19,10 +19,6 @@ MainView::MainView(int width, int height, Adafruit_ILI9341* _tft, TouchScreen* _
 	state = _state;
 
 	timer = millis();
-	/*start_pressed = false;
-	config_pressed = false;
-	start_gap = 0;
-	config_gap = 0;*/
 
 	initialize();
 }
@@ -71,11 +67,13 @@ void MainView::initialize()
 
 void MainView::update()
 {
-	// Update temperature
 	if (millis() - timer > TEMP_UPDATE)
 	{
+		// Update temperature
 		timer = millis();
 		temp = tc->readCelsius();
+
+		// Update temp KeyVal
 		char t_buffer[16];
 		char s_buffer[16];
 		ViewUtils::formatf(temp, 6, 2, t_buffer);
@@ -83,8 +81,8 @@ void MainView::update()
 		temp_kv.setValue(s_buffer);
 	}
 
-	// Update Temp Chart
-	temp_chart.update(temp);
+	// Update Temp 
+	temp_chart.update((timer - state->last_start) / 1000, temp);
 
 	// Update KeyVals
 	profile_kv.update();

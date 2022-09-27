@@ -77,7 +77,7 @@ bool Button::update()
 	if (rerender)
 	{
 		uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
-		uint16_t bgc = pressed ? bg_selected : background_color;
+		uint16_t bgc = pressed ? bg_selected : bg_accent;
 
 		tft->getTextBounds(name, bound.x, bound.y, &t_x, &t_y, &t_w, &t_h);
 		int text_x = bound.x + ((bound.w - t_w) / 2);

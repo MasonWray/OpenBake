@@ -29,7 +29,10 @@ void Button::initialize()
 
 	uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
 
-	tft->getTextBounds(name, bound.x, bound.y, &t_x, &t_y, &t_w, &t_h);
+	String upper = String(name);
+	upper.toUpperCase();
+
+	tft->getTextBounds(upper, bound.x, bound.y, &t_x, &t_y, &t_w, &t_h);
 	int text_x = bound.x + ((bound.w - t_w) / 2);
 	int text_y = bound.y + (bound.h / 2) + (t_h / 2);
 
@@ -79,7 +82,10 @@ bool Button::update()
 		uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
 		uint16_t bgc = pressed ? bg_selected : bg_accent;
 
-		tft->getTextBounds(name, bound.x, bound.y, &t_x, &t_y, &t_w, &t_h);
+		String upper = String(name);
+		upper.toUpperCase();
+
+		tft->getTextBounds(upper, bound.x, bound.y, &t_x, &t_y, &t_w, &t_h);
 		int text_x = bound.x + ((bound.w - t_w) / 2);
 		int text_y = bound.y + (bound.h / 2) + (t_h / 2);
 

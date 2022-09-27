@@ -26,9 +26,13 @@ private:
 
 	int timer;
 	int pin;
+	bool heating;
 
 	int getTargetTemp();
 	int getActualTemp();
+
+	void heat();
+	void cool();
 };
 
 #endif

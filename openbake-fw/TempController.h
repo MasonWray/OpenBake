@@ -4,19 +4,31 @@
 #define _TEMPCONTROLLER_h
 
 #if defined(ARDUINO) && ARDUINO >= 100
-	#include "arduino.h"
+#include "arduino.h"
 #else
-	#include "WProgram.h"
+#include "WProgram.h"
 #endif
+
+#include "Config.h"
+#include "AppState.h"
+#include <Adafruit_MAX31855.h>
 
 class TempController
 {
 public:
-	TempController();
+	TempController(int control_pin, Adafruit_MAX31855* _tc, AppState* _state);
 	~TempController();
+	void update();
 
 private:
+	Adafruit_MAX31855* tc;
+	AppState* state;
 
+	int timer;
+	int pin;
+
+	int getTargetTemp();
+	int getActualTemp();
 };
 
 #endif

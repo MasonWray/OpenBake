@@ -141,6 +141,9 @@
     <ClInclude Include="KeyVal.h">
       <Filter>Header Files\Components\KeyValue</Filter>
     </ClInclude>
+    <ClInclude Include="TempController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -181,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="KeyVal.cpp">
       <Filter>Source Files\Components\KeyVal</Filter>
+    </ClCompile>
+    <ClCompile Include="TempController.cpp">
+      <Filter>Source Files\Controllers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

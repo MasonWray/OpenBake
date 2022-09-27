@@ -29,7 +29,7 @@ String ViewUtils::mstot(int ms)
 {
 	int mins = ms / MINUTE;
 	int secs = (ms - (mins * MINUTE)) / SECOND;
-	String minstr = String(mins);
-	String secstr = String(secs);
+	String minstr = String(mins).length() >= 2 ? String(mins) : String("0" + String(mins));
+	String secstr = String(secs).length() >= 2 ? String(secs) : String("0" + String(secs));
 	return String(minstr + ":" + secstr);
 }

@@ -74,11 +74,7 @@ void MainView::update()
 		temp = tc->readCelsius();
 
 		// Update temp KeyVal
-		char t_buffer[16];
-		char s_buffer[16];
-		ViewUtils::formatf(temp, 6, 2, t_buffer);
-		sprintf(s_buffer, "%s %c", t_buffer, 'C');
-		temp_kv.setValue(s_buffer);
+		temp_kv.setValue(String(String(temp, 2) + " C"));
 
 		// Update time KeyVal
 		if (state->running)

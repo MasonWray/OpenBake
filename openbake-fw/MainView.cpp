@@ -90,7 +90,7 @@ void MainView::update()
 	temp_kv.update();
 
 	// Draw Start/Stop Button
-	if (start.update())
+	if (start.update() && state->profile_selected)
 	{
 		state->startCycle();
 	}

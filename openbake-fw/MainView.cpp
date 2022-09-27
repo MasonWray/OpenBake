@@ -67,7 +67,7 @@ void MainView::initialize()
 
 void MainView::update()
 {
-	if (millis() - timer > TEMP_UPDATE)
+	if (millis() - timer > MV_UPDATE)
 	{
 		// Update temperature
 		timer = millis();

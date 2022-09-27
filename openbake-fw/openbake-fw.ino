@@ -12,6 +12,7 @@
 #include "MainView.h"
 #include "View.h"
 #include "Config.h"
+#include "TempController.h"
 #include <Adafruit_DotStar.h>
 #include <SPI.h>
 #include <Adafruit_GFX.h>
@@ -31,6 +32,8 @@
 #define MAXCS   7
 #define MAXCLK  13
 
+#define SSR 0
+
 Adafruit_DotStar ds = Adafruit_DotStar(1, 41, 40, DOTSTAR_BGR);
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
@@ -40,6 +43,7 @@ int minX = 500, minY = 500, maxX = 0, maxY = 0;
 
 AppState state = AppState();
 View* view;
+TempController temp_controller = TempController(SSR, &tc, &state);
 
 void setup() {
 	Serial.begin(115200);
@@ -66,6 +70,7 @@ void setup() {
 }
 
 void loop() {
+	temp_controller.update();
 	view->update();
 
 	if (view->next_view != view->type)

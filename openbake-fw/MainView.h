@@ -20,7 +20,7 @@
 #include <TouchScreen.h>
 #include <Adafruit_MAX31855.h>
 
-#define TEMP_UPDATE 1000
+#define MV_UPDATE 1000
 
 class MainView : public View
 {

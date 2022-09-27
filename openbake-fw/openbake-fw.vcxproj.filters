@@ -79,6 +79,12 @@
     <Filter Include="Source Files\Components\KeyVal">
       <UniqueIdentifier>{dbb9845c-818b-4ddc-8863-6bcc982deb4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Controllers">
+      <UniqueIdentifier>{e818c53b-48ea-4562-88f9-0cbab0313dec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controllers">
+      <UniqueIdentifier>{a940f0fa-b8df-4452-bf3d-c8b8b8530b0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openbake-fw.ino" />
@@ -135,6 +141,9 @@
     <ClInclude Include="KeyVal.h">
       <Filter>Header Files\Components\KeyValue</Filter>
     </ClInclude>
+    <ClInclude Include="TempController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="View.cpp">
@@ -175,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="KeyVal.cpp">
       <Filter>Source Files\Components\KeyVal</Filter>
+    </ClCompile>
+    <ClCompile Include="TempController.cpp">
+      <Filter>Source Files\Controllers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

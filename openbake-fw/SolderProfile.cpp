@@ -28,4 +28,3 @@ int SolderProfile::getTotalDuration()
 	return preheat.duration + soak.duration + heat.duration + flow.duration + cooldown.duration;
 }
 
-

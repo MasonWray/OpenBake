@@ -131,6 +131,7 @@
     <ClInclude Include="SolderProfile.h" />
     <ClInclude Include="SplashView.h" />
     <ClInclude Include="TempChart.h" />
+    <ClInclude Include="TempController.h" />
     <ClInclude Include="Theme.h" />
     <ClInclude Include="ViewUtils.h" />
     <ClInclude Include="View.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="SolderProfile.cpp" />
     <ClCompile Include="SplashView.cpp" />
     <ClCompile Include="TempChart.cpp" />
+    <ClCompile Include="TempController.cpp" />
     <ClCompile Include="ViewUtils.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>

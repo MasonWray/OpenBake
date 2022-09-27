@@ -4,6 +4,8 @@
 #define POST_DELAY 1500
 #define SERIAL_DELAY 6000
 
+#define TEMP_UPDATE 200
+
 #define MAX_X 820
 #define MAX_Y 911
 #define MIN_X 230

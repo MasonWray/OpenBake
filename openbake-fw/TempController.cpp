@@ -68,7 +68,12 @@ int TempController::getTargetTemp(int secs)
 			// Time is in the current zone
 			if (secs >= zone_start_time && secs < zone_end_time)
 			{
-
+				int temp_range = zone_end_temp - zone_start_temp;
+				int zone_duration = zones[i].duration;
+				float degs_per_step = (float)temp_range / (float)zone_duration;
+				int target = zone_start_temp + (degs_per_step * (secs - zone_start_time));
+				Serial.println(target);
+				return target;
 			}
 
 			// Time is not in the current zone and there re more zones to check
@@ -79,17 +84,12 @@ int TempController::getTargetTemp(int secs)
 				zone_start_time = zone_end_time;
 				zone_end_time = zone_end_time + zones[i + 1].duration;
 			}
-
-			// Time is not in any zone
-			else
-			{
-				return state->room_temp;
-			}
 		}
+		return state->room_temp;
 	}
 	else
 	{
-		return 0;
+		return state->room_temp;
 	}
 }
 

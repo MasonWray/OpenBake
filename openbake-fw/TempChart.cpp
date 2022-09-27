@@ -13,6 +13,9 @@ TempChart::TempChart(ViewUtils::BoundingBox _bound, AppState* _state, Adafruit_I
 	bound = _bound;
 	state = _state;
 
+	last_time = 0;
+	last_temp = state->room_temp;
+
 	initialize();
 }
 
@@ -30,7 +33,7 @@ void TempChart::initialize()
 	tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_color);
 }
 
-void TempChart::update(float temp)
+void TempChart::update(int secs, float temp)
 {
 	using namespace Theme;
 
@@ -57,6 +60,20 @@ void TempChart::update(float temp)
 		// Draw Border
 		tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_color);
 	}
+
+	if (secs != last_time && state->running)
+	{
+		int x0 = timeDV(last_time);
+		int y0 = tempDV(last_temp);
+		int x1 = timeDV(secs);
+		int y1 = tempDV(round(temp));
+		if (isWithinBounds(x0, y0, x1, y1))
+		{
+			tft->drawLine(x0, y0, x1, y1, actual_curve_col);
+		}
+		last_time = secs;
+		last_temp = round(temp);
+	}
 }
 
 int TempChart::tempDV(int temp)
@@ -70,6 +87,16 @@ int TempChart::timeDV(int sec)
 {
 	int max_time = state->current_profile.getTotalDuration();
 	return bound.x + (((float)sec / (float)max_time) * (float)bound.w);
+}
+
+bool TempChart::isWithinBounds(int x0, int y0, int x1, int y1)
+{
+	int min_x = bound.x;
+	int max_x = bound.x + bound.w;
+	int min_y = bound.y;
+	int max_y = bound.y + bound.h;
+
+	return (x0 > min_x && x0 < max_x&& x1 > min_x && x1 < max_x&& y0 > min_y && y0 < max_y&& y1 > min_y && y1 < max_y);
 }
 
 

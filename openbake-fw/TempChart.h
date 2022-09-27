@@ -24,7 +24,7 @@ public:
 	~TempChart();
 
 	void initialize();
-	void update(float temp);
+	void update(int secs, float temp);
 
 private:
 	Adafruit_ILI9341* tft;
@@ -33,8 +33,13 @@ private:
 	AppState* state;
 	String last_guid;
 
+	int last_time;
+	int last_temp;
+
 	int tempDV(int temp);
 	int timeDV(int ms);
+
+	bool isWithinBounds(int x0, int y0, int x1, int y1);
 };
 
 #endif

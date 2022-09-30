@@ -100,13 +100,11 @@ void MainView::update()
 	bool ss_pressed = start.update();
 	if (ss_pressed && state->profile_selected && !(state->running))
 	{
-		Serial.println("STOP");
 		start.setName("STOP");
 		state->startCycle();
 	}
 	else if (ss_pressed && state->running)
 	{
-		Serial.println("START");
 		start.setName("START");
 		state->stopCycle();
 	}

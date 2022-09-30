@@ -39,6 +39,8 @@ public:
 
 
 private:
+	void draw();
+
 	Adafruit_ILI9341* tft;
 	TouchScreen* ts;
 

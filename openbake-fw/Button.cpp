@@ -9,12 +9,17 @@ Button::Button() {}
 Button::Button(String _name, ViewUtils::BoundingBox _bound, Adafruit_ILI9341* _tft, TouchScreen* _ts)
 {
 	name = _name;
+	last_name = name;
+	disabled = false;
+	last_disabled = disabled;
 	bound = _bound;
 	tft = _tft;
 	ts = _ts;
-	disabled = false;
 	pressed = false;
 	gap = 0;
+
+	style = Style::DEFAULT;
+	last_style = style;
 
 	initialize();
 }

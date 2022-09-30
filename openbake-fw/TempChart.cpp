@@ -30,7 +30,7 @@ void TempChart::initialize()
 
 	// Draw Temp Chart
 	tft->fillRoundRect(padding, padding, bound.w, bound.h, radius, bg_accent);
-	tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_color);
+	tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_default);
 }
 
 void TempChart::update(int secs, float temp)
@@ -58,7 +58,7 @@ void TempChart::update(int secs, float temp)
 		tft->drawLine(timeDV(flow_x), tempDV(state->current_profile.flow.target), timeDV(cooldown_x), tempDV(state->current_profile.cooldown.target), target_curve_col);
 
 		// Draw Border
-		tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_color);
+		tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_default);
 	}
 
 	if (secs != last_time && state->running)

@@ -118,7 +118,7 @@ void Button::draw()
 	int text_y = bound.y + (bound.h / 2) + (t_h / 2);
 
 	tft->fillRoundRect(bound.x, bound.y, bound.w, bound.h, radius, bgc);
-	tft->drawRoundRect(bound.x, bound.y, bound.w, bound.h, radius, border_color);
+	tft->drawRoundRect(bound.x, bound.y, bound.w, bound.h, radius, border_default);
 	tft->setCursor(text_x, text_y);
 	tft->print(name);
 }

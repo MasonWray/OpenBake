@@ -17,20 +17,41 @@
 class Button
 {
 public:
+	enum Style
+	{
+		DEFAULT,
+		PRIMARY,
+		SUCCESS,
+		WARNING,
+		DANGER,
+	};
+
 	Button();
 	Button(String _name, ViewUtils::BoundingBox _bound, Adafruit_ILI9341* _tft, TouchScreen* _ts);
 	~Button();
 
 	void initialize();
 	bool update();
+	void setDisabled(bool is_disabled);
+	void setName(String _name);
+	void setStyle(Style _style);
+
+
 
 private:
 	Adafruit_ILI9341* tft;
 	TouchScreen* ts;
 
 	String name;
-	ViewUtils::BoundingBox bound;
+	String last_name;
+
+	Button::Style style;
+	Button::Style last_style;
+
 	bool disabled;
+	bool last_disabled;
+
+	ViewUtils::BoundingBox bound;
 	bool pressed;
 	int gap;
 };

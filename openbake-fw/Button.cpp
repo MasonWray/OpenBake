@@ -49,33 +49,45 @@ bool Button::update()
 	bool selected = false;
 	bool rerender = false;
 
-	TSPoint* p = ViewUtils::lerp(ts->getPoint());
-
-	if (p->z > ts->pressureThreshhold)
+	if (!disabled)
 	{
-		if (p->x >= bound.x && p->x <= bound.x + bound.w && p->y >= bound.y && p->y <= bound.y + bound.h)
+		TSPoint* p = ViewUtils::lerp(ts->getPoint());
+
+		if (p->z > ts->pressureThreshhold)
 		{
-			rerender = pressed ? rerender : true;
-			pressed = true;
-			gap = 0;
+			if (p->x >= bound.x && p->x <= bound.x + bound.w && p->y >= bound.y && p->y <= bound.y + bound.h)
+			{
+				rerender = pressed ? rerender : true;
+				pressed = true;
+				gap = 0;
+			}
 		}
+		else
+		{
+			if (pressed)
+			{
+				gap++;
+			}
+
+			if (gap > 8 && pressed)
+			{
+				rerender = true;
+				pressed = false;
+				selected = true;
+			}
+		}
+
+		delete p;
 	}
-	else
+
+	// Check for prop updates
+	if (!name.equals(last_name) || style != last_style || disabled != last_disabled)
 	{
-		if (pressed)
-		{
-			gap++;
-		}
-
-		if (gap > 8 && pressed)
-		{
-			rerender = true;
-			pressed = false;
-			selected = true;
-		}
+		rerender = true;
+		last_name = name;
+		last_style = style;
+		last_disabled = disabled;
 	}
-
-	delete p;
 
 	if (rerender)
 	{
@@ -96,4 +108,19 @@ bool Button::update()
 	}
 
 	return selected;
+}
+
+void Button::setDisabled(bool is_disabled)
+{
+	disabled = is_disabled;
+}
+
+void Button::setName(String _name)
+{
+	name = _name;
+}
+
+void Button::setStyle(Style _style)
+{
+	style = _style;
 }

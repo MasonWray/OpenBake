@@ -72,7 +72,6 @@ int TempController::getTargetTemp(int secs)
 				int zone_duration = zones[i].duration;
 				float degs_per_step = (float)temp_range / (float)zone_duration;
 				int target = zone_start_temp + (degs_per_step * (secs - zone_start_time));
-				Serial.println(target);
 				return target;
 			}
 

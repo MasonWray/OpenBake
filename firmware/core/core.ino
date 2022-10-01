@@ -4,7 +4,6 @@
  Author:	Mason Wray
 */
 
-#include "KeyVal.h"
 #include "AppState.h"
 #include "SplashView.h"
 #include "ConfigView.h"

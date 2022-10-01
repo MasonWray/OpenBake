@@ -43,9 +43,6 @@
     <Filter Include="Source Files\Display Interface">
       <UniqueIdentifier>{2f6f6c52-d21c-45d8-97ec-d95e4402ae86}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc Files\Config">
-      <UniqueIdentifier>{861706e4-a556-444b-864f-8208573c90af}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Components\Button">
       <UniqueIdentifier>{d098185c-51fe-4b36-9aef-d77d7e684381}</UniqueIdentifier>
     </Filter>
@@ -96,5 +93,46 @@
     <ClInclude Include="__vm\.core.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Components\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyVal.h">
+      <Filter>Header Files\Components\KeyVal</Filter>
+    </ClInclude>
+    <ClInclude Include="TempChart.h">
+      <Filter>Header Files\Components\TempChart</Filter>
+    </ClInclude>
+    <ClInclude Include="TempController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Theme.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewUtils.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Components\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyVal.cpp">
+      <Filter>Source Files\Components\KeyVal</Filter>
+    </ClCompile>
+    <ClCompile Include="TempChart.cpp">
+      <Filter>Source Files\Components\TempChart</Filter>
+    </ClCompile>
+    <ClCompile Include="TempController.cpp">
+      <Filter>Source Files\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Source Files\Display Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewUtils.cpp">
+      <Filter>Source Files\Display Interface</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

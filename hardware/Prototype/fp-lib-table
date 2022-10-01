@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Modules)(type KiCad)(uri F:/Projects/OpenBake/hardware/lib/Modules.pretty)(options "")(descr ""))
+)

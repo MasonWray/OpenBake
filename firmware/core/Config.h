@@ -1,6 +1,6 @@
 #pragma once
 
-#define FIRMWARE_VERSION "v0.1.0"
+#define FIRMWARE_VERSION "v0.1.1"
 #define POST_DELAY 1500
 #define SERIAL_DELAY 6000
 

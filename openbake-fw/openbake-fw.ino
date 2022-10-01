@@ -47,7 +47,7 @@ TempController temp_controller = TempController(SSR, &tc, &state);
 
 void setup() {
 	Serial.begin(115200);
-	while (!Serial) delay(1);
+	//while (!Serial) delay(1);
 
 	// Initialize RGB LED
 	ds.begin();

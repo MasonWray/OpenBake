@@ -113,6 +113,6 @@ void MainView::update()
 	config.setDisabled(state->running);
 	if (config.update())
 	{
-		next_view = ViewType::CONFIG_VIEW;
+		next_view = ViewType::PROFILE_VIEW;
 	}
 }

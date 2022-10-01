@@ -62,7 +62,7 @@ void MainView::initialize()
 	start = Button("START", { (int16_t)padding , (int16_t)button_y, (uint16_t)button_width, (uint16_t)button_height }, tft, ts);
 
 	// Draw Config Button
-	config = Button("CONFIG", { (int16_t)(button_width + (padding * 2)) , (int16_t)button_y, (uint16_t)button_width, (uint16_t)button_height }, tft, ts);
+	config = Button("PROFILE", { (int16_t)(button_width + (padding * 2)) , (int16_t)button_y, (uint16_t)button_width, (uint16_t)button_height }, tft, ts);
 }
 
 void MainView::update()
@@ -113,6 +113,6 @@ void MainView::update()
 	config.setDisabled(state->running);
 	if (config.update())
 	{
-		next_view = ViewType::CONFIG_VIEW;
+		next_view = ViewType::PROFILE_VIEW;
 	}
 }

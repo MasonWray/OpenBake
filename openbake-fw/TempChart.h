@@ -35,6 +35,7 @@ private:
 
 	int last_time;
 	int last_temp;
+	int last_start_time;
 
 	int tempDV(int temp);
 	int timeDV(int ms);

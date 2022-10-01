@@ -28,7 +28,7 @@ void ProfileView::initialize()
 	using namespace Theme;
 	using namespace ViewUtils;
 
-	tft->fillScreen(background_color);
+	tft->fillScreen(bg_default);
 
 	BoundingBox b1; b1.x = padding; b1.y = padding; b1.w = display_width - (padding * 2); b1.h = button_height;
 	Sn63_Pb37 = Button("Sn63/Pb37", b1, tft, ts);

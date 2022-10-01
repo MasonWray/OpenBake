@@ -30,17 +30,26 @@ void TempChart::initialize()
 
 	// Draw Temp Chart
 	tft->fillRoundRect(padding, padding, bound.w, bound.h, radius, bg_accent);
-	tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_color);
+	tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_default);
 }
 
 void TempChart::update(int secs, float temp)
 {
 	using namespace Theme;
 
-	if (!last_guid.equals(state->current_profile.guid))
-	{
-		last_guid = state->current_profile.guid;
+	bool rerender = false;
 
+	if (!last_guid.equals(state->current_profile.guid) || last_start_time != state->last_start)
+	{
+		rerender = true;
+		last_guid = state->current_profile.guid;
+		last_start_time = state->last_start;
+		last_time = 0;
+		last_temp = state->room_temp;
+	}
+
+	if (rerender)
+	{
 		// Clear Component
 		tft->fillRoundRect(padding, padding, bound.w, bound.h, radius, bg_accent);
 
@@ -58,7 +67,7 @@ void TempChart::update(int secs, float temp)
 		tft->drawLine(timeDV(flow_x), tempDV(state->current_profile.flow.target), timeDV(cooldown_x), tempDV(state->current_profile.cooldown.target), target_curve_col);
 
 		// Draw Border
-		tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_color);
+		tft->drawRoundRect(padding, padding, bound.w, bound.h, radius, border_default);
 	}
 
 	if (secs != last_time && state->running)

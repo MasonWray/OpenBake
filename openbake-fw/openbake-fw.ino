@@ -97,8 +97,3 @@ void loop() {
 		}
 	}
 }
-
-void updateCurrentView(View::ViewType new_view, View* cur_view)
-{
-
-}

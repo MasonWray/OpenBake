@@ -51,7 +51,7 @@ void ConfigView::update()
 
 	if (rerender)
 	{
-		tft->fillScreen(background_color);
+		tft->fillScreen(bg_default);
 		items[0] = ConfigListItem(tft, ts, 0);
 
 		for (int i = 0; i < node->num_children && i + 1 < ITEMS_PER_PAGE; i++)

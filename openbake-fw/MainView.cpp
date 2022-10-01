@@ -30,7 +30,7 @@ MainView::~MainView()
 void MainView::initialize()
 {
 	// Clear Display
-	tft->fillScreen(background_color);
+	tft->fillScreen(bg_default);
 
 	// Draw Temp Chart
 	temp_chart = TempChart({ padding, padding, (uint16_t)(display_width - (padding * 2)), chart_height }, state, tft, ts);
@@ -97,12 +97,20 @@ void MainView::update()
 	temp_kv.update();
 
 	// Draw Start/Stop Button
-	if (start.update() && state->profile_selected)
+	bool ss_pressed = start.update();
+	if (ss_pressed && state->profile_selected && !(state->running))
 	{
+		start.setName("STOP");
 		state->startCycle();
+	}
+	else if (ss_pressed && state->running)
+	{
+		start.setName("START");
+		state->stopCycle();
 	}
 
 	// Draw Config Button
+	config.setDisabled(state->running);
 	if (config.update())
 	{
 		next_view = ViewType::CONFIG_VIEW;

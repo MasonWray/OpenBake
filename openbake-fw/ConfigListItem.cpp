@@ -63,7 +63,7 @@ void ConfigListItem::initialize()
 	String name = is_back_button ? "Back" : node->name;
 
 	int line_y = bound.y + bound.h;
-	tft->drawFastHLine(0, line_y, W, border_color);
+	tft->drawFastHLine(0, line_y, W, border_default);
 	tft->getTextBounds(name, 0, H, &t_x, &t_y, &t_w, &t_h);
 	int text_x = left_offset;
 	int text_y = line_y - (bound.h / 2) + (t_h / 2);
@@ -118,7 +118,7 @@ bool ConfigListItem::update()
 		{
 			uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
 			String name = is_back_button ? "Back" : node->name;
-			uint16_t bgc = pressed ? bg_selected : background_color;
+			uint16_t bgc = pressed ? bg_selected : bg_default;
 
 			tft->fillRect(bound.x, bound.y, bound.w, bound.h, bgc);
 			int line_y = bound.y + bound.h;
@@ -128,10 +128,10 @@ bool ConfigListItem::update()
 			int text_y = line_y - (bound.h / 2) + (t_h / 2);
 			tft->setCursor(text_x, text_y);
 			tft->println(name);
-			tft->drawFastHLine(0, line_y, W, border_color);
+			tft->drawFastHLine(0, line_y, W, border_default);
 			if (i > 0)
 			{
-				tft->drawFastHLine(0, bound.y, W, border_color);
+				tft->drawFastHLine(0, bound.y, W, border_default);
 			}
 			if (is_back_button)
 			{
@@ -148,14 +148,14 @@ bool ConfigListItem::update()
 
 void ConfigListItem::drawLeftArrow(Adafruit_ILI9341* _tft, int x, int y)
 {
-	tft->drawLine(x, y, x + padding, y - padding, border_color);
-	tft->drawLine(x, y, x + padding, y + padding, border_color);
+	tft->drawLine(x, y, x + padding, y - padding, border_default);
+	tft->drawLine(x, y, x + padding, y + padding, border_default);
 }
 
 void ConfigListItem::drawRightArrow(Adafruit_ILI9341* _tft, int x, int y)
 {
-	tft->drawLine(x, y, x - padding, y - padding, border_color);
-	tft->drawLine(x, y, x - padding, y + padding, border_color);
+	tft->drawLine(x, y, x - padding, y - padding, border_default);
+	tft->drawLine(x, y, x - padding, y + padding, border_default);
 }
 
 

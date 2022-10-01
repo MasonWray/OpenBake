@@ -31,7 +31,7 @@ void SplashView::initialize()
 
 	uint16_t t_w; uint16_t t_h; int16_t t_x; int16_t t_y;
 
-	tft->fillScreen(background_color);
+	tft->fillScreen(bg_default);
 	tft->setFont(&FreeMono24pt7b);
 	tft->getTextBounds(heading, 0, 0, &t_x, &t_y, &t_w, &t_h);
 	tft->setCursor((display_width - t_w) / 2, display_height / 3);

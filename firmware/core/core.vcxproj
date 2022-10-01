@@ -110,8 +110,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppState.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="KeyVal.h" />
+    <ClInclude Include="SolderProfile.h" />
     <ClInclude Include="TempChart.h" />
     <ClInclude Include="TempController.h" />
     <ClInclude Include="Theme.h" />
@@ -120,8 +122,10 @@
     <ClInclude Include="__vm\.core.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AppState.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="KeyVal.cpp" />
+    <ClCompile Include="SolderProfile.cpp" />
     <ClCompile Include="TempChart.cpp" />
     <ClCompile Include="TempController.cpp" />
     <ClCompile Include="View.cpp" />

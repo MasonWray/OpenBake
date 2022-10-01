@@ -37,10 +37,19 @@ void TempChart::update(int secs, float temp)
 {
 	using namespace Theme;
 
-	if (!last_guid.equals(state->current_profile.guid))
-	{
-		last_guid = state->current_profile.guid;
+	bool rerender = false;
 
+	if (!last_guid.equals(state->current_profile.guid) || last_start_time != state->last_start)
+	{
+		rerender = true;
+		last_guid = state->current_profile.guid;
+		last_start_time = state->last_start;
+		last_time = 0;
+		last_temp = state->room_temp;
+	}
+
+	if (rerender)
+	{
 		// Clear Component
 		tft->fillRoundRect(padding, padding, bound.w, bound.h, radius, bg_accent);
 

@@ -21,7 +21,7 @@ namespace Theme
 	static uint16_t bg_default = 0x0000;
 	static uint16_t bg_accent = 0x18E3;
 	static uint16_t bg_selected = 0x7BCF;
-	static uint16_t target_curve_col = 0x1C2A;
+	static uint16_t target_curve_col = 0x0E5E;
 	static uint16_t actual_curve_col = 0xD9A8;
 
 	// Layout

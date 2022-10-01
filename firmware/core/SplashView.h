@@ -12,7 +12,7 @@
 #include "Config.h"
 #include "Theme.h"
 #include "View.h"
-#include <Fonts/FreeMono24pt7b.h>
+#include <Fonts/FreeMono18pt7b.h>
 #include <Fonts/FreeMono12pt7b.h>
 #include <Fonts/FreeMono9pt7b.h>
 

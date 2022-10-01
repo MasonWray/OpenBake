@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Misc Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>xml;json;txt;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{ab265499-beae-428d-bf24-dafb53348e3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controllers">
+      <UniqueIdentifier>{2b3dd629-798c-4057-9ad4-da4f1ba33e88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Display Interface">
+      <UniqueIdentifier>{1647ad96-bb31-40af-a3df-f295bc0093cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{71ffc04c-b014-447d-9e2e-30fa89c88650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views">
+      <UniqueIdentifier>{215262e5-e2e1-48a1-80b9-1006b64dd5c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{63a2fb27-d98c-4117-84bf-36ad42ee15e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controllers">
+      <UniqueIdentifier>{6f6c749e-1aa6-46ac-a2cf-91b9456c5eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{2ce903ec-72ee-475e-9d96-35b9f2fc2a5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views">
+      <UniqueIdentifier>{9da3b997-2217-477d-b21a-14879d42bece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Display Interface">
+      <UniqueIdentifier>{2f6f6c52-d21c-45d8-97ec-d95e4402ae86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Button">
+      <UniqueIdentifier>{d098185c-51fe-4b36-9aef-d77d7e684381}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\KeyVal">
+      <UniqueIdentifier>{bbc060c6-7d95-499f-958a-8850d568bcf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\TempChart">
+      <UniqueIdentifier>{f0ad1531-e99a-4fe8-8858-b33e881fd37b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Button">
+      <UniqueIdentifier>{73127f3f-fe54-4cf5-9c1c-51b517f405ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\KeyVal">
+      <UniqueIdentifier>{b0c7031a-551f-4e9e-9e06-ed720cd5e768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\TempChart">
+      <UniqueIdentifier>{20b2a646-2bf9-454e-a7c4-8afc2c5986e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views\Config">
+      <UniqueIdentifier>{457c1dbc-8dc3-4cb4-8977-1b5159f74f50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views\Main">
+      <UniqueIdentifier>{1ea20377-3705-4131-858d-a3b368161468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views\Profile">
+      <UniqueIdentifier>{568e7779-fa84-4555-8792-1bdf07d5f619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views\Splash">
+      <UniqueIdentifier>{e35537f8-e93c-4461-a20b-0c51f771f1ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Config">
+      <UniqueIdentifier>{2cd193c7-f7a7-4585-9345-0f100c1b8026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Main">
+      <UniqueIdentifier>{bcc32769-ce38-4512-ae53-48ca43c9e2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Profile">
+      <UniqueIdentifier>{3ce050f1-e87b-484f-a481-3638f127ebb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views\Splash">
+      <UniqueIdentifier>{ef9d76d2-974f-4986-861f-831e1e64b336}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="core.ino" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.core.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Components\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyVal.h">
+      <Filter>Header Files\Components\KeyVal</Filter>
+    </ClInclude>
+    <ClInclude Include="TempChart.h">
+      <Filter>Header Files\Components\TempChart</Filter>
+    </ClInclude>
+    <ClInclude Include="TempController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Theme.h">
+      <Filter>Misc Files</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewUtils.h">
+      <Filter>Header Files\Display Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="AppState.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="SolderProfile.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Components\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyVal.cpp">
+      <Filter>Source Files\Components\KeyVal</Filter>
+    </ClCompile>
+    <ClCompile Include="TempChart.cpp">
+      <Filter>Source Files\Components\TempChart</Filter>
+    </ClCompile>
+    <ClCompile Include="TempController.cpp">
+      <Filter>Source Files\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Source Files\Display Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewUtils.cpp">
+      <Filter>Source Files\Display Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="AppState.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="SolderProfile.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

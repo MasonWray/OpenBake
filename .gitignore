@@ -2,5 +2,9 @@ openbake-fw/__vm
 openbake-fw/.vs
 openbake-fw/Release
 openbake-fw/Debug
+firmware/core/__vm
+firmware/.vs
+firmware/core/Release
+firmware/core/Debug
 hardware/Prototype/Prototype.sch-bak
 hardware/Prototype/Prototype.kicad_pcb-bak

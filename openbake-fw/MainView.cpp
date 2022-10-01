@@ -30,7 +30,7 @@ MainView::~MainView()
 void MainView::initialize()
 {
 	// Clear Display
-	tft->fillScreen(background_color);
+	tft->fillScreen(bg_default);
 
 	// Draw Temp Chart
 	temp_chart = TempChart({ padding, padding, (uint16_t)(display_width - (padding * 2)), chart_height }, state, tft, ts);

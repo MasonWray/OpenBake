@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name Modules)(type Legacy)(uri F:/Projects/OpenBake/hardware/lib/Modules.lib)(options "")(descr ""))
+  (lib (name Prototype-cache)(type Legacy)(uri ${KIPRJMOD}/Prototype-cache.lib)(options "")(descr ""))
 )
